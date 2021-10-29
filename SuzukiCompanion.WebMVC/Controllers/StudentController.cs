@@ -56,6 +56,24 @@ namespace SuzukiCompanion.WebMVC.Controllers
             return View(model);
         }
 
+        public ActionResult Edit(int id)
+        {
+            var service = CreateStudentService();
+            var detail = service.GetStudentById(id);
+            var model =
+                new StudentEdit
+                {
+                    StudentId = detail.StudentId,
+                    FirstName = detail.FirstName,
+                    LastName = detail.LastName,
+                    Email = detail.Email,
+                    Age = detail.Age,
+                    PhoneNumber = detail.PhoneNumber,
+                    Location = detail.Location,
+                    ModifiedUtc = detail.ModifiedUtc,
+                };
+            return View(model);
+        }
 
         // Helper Method
         private StudentService CreateStudentService()

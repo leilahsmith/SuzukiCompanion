@@ -84,5 +84,25 @@ namespace SuzukiCompanion.Services
                     };
             }
         }
+        public bool UpdateStudent(StudentEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Students
+                        .Single(e => e.StudentId == model.StudentId && e.OwnerId == _userId);
+
+                
+                entity.FirstName = model.FirstName;
+                entity.LastName = model.LastName;
+                entity.Age = model.Age;
+                entity.PhoneNumber = model.PhoneNumber;
+                entity.Location = model.Location;
+                entity.ModifiedUtc = DateTimeOffset.UtcNow;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }

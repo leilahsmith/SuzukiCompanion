@@ -58,6 +58,7 @@
     <Compile Include="QuizModel.cs" />
     <Compile Include="StudentCreate.cs" />
     <Compile Include="StudentDetail.cs" />
+    <Compile Include="StudentEdit.cs" />
     <Compile Include="StudentListItem.cs" />
   </ItemGroup>
   <ItemGroup>
