@@ -16,5 +16,23 @@ namespace SuzukiCompanion.WebMVC.Controllers
             var model = new StudentListItem[0];
             return View(model);
         }
+
+        // GET: Student/Create
+        //This is a request to get the "Create" view.
+        public ActionResult Create()
+        {
+            return View();
+        }
+        // POST: Student/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(StudentCreate model)
+        {
+            if (ModelState.IsValid)
+            {
+
+            }
+            return View(model);
+        }
     }
 }

@@ -14,14 +14,18 @@ namespace SuzukiCompanion.Models
         [Required]
         public Guid OwnerId { get; set; }
         public string Email { get; set; }
+        [Display(Name = "First Name")]
         public string FirstName { get; set; }
+        [Display(Name = "Last Name")]
         public string LastName { get; set; }
         [Display(Name = "Full Name")]
         public string FullName
         {
             get { return LastName + ", " + FirstName; }
         }
+        [Display(Name = "Birthday")]
         public DateTimeOffset BirthDate { get; set; }
+        [Display(Name = "Phone Number")]
         public string PhoneNumber { get; set; }
         public string Location { get; set; }
         [Required]
@@ -29,6 +33,7 @@ namespace SuzukiCompanion.Models
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [Display(Name = "Start Date")]
         public DateTime StartDate { get; set; }
+        [Display(Name = "Edited Date")]
         public DateTimeOffset? ModifiedUtc { get; set; }
     }
 }
