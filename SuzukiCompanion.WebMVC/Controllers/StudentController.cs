@@ -98,6 +98,32 @@ namespace SuzukiCompanion.WebMVC.Controllers
             ModelState.AddModelError("", "Your student could not be updated.");
             return View(model);
         }
+
+        //GET: Student/Delete
+        [ActionName("Delete")]
+        public ActionResult Delete(int id)
+        {
+            var svc = CreateStudentService();
+            var model = svc.GetStudentById(id);
+
+            return View(model);
+        }
+
+        //POST: Student/Delete
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteStudent(int id)
+        {
+            var service = CreateStudentService();
+
+            service.DeleteStudent(id);
+
+            TempData["SaveResult"] = "Your student was deleted";
+
+            return RedirectToAction("Index");
+        }
+
         // Helper Method
         private StudentService CreateStudentService()
         {
