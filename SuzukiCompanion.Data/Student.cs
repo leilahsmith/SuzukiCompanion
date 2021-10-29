@@ -23,8 +23,8 @@ namespace SuzukiCompanion.Data
         {
             get { return LastName + ", " + FirstName; }
         }
-        [Display(Name = "Birthday")]
-        public DateTimeOffset BirthDate { get; set; }
+        [Display(Name = "Age")]
+        public int Age { get; set; }
         [Display(Name = "Phone Number")]
         public string PhoneNumber { get; set; }
         public string Location { get; set; }

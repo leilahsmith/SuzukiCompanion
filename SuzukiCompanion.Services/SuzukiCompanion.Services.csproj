@@ -55,10 +55,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StudentService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SuzukiCompanion.Data\SuzukiCompanion.Data.csproj">
+      <Project>{33f0fce8-2ab3-4ecc-b90b-a3bee849466a}</Project>
+      <Name>SuzukiCompanion.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SuzukiCompanion.Models\SuzukiCompanion.Models.csproj">
+      <Project>{2d62dc7f-0e36-489e-b1fb-e18918f1acb1}</Project>
+      <Name>SuzukiCompanion.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

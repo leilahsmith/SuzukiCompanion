@@ -1,4 +1,6 @@
-﻿using SuzukiCompanion.Models;
+﻿using Microsoft.AspNet.Identity;
+using SuzukiCompanion.Models;
+using SuzukiCompanion.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +15,10 @@ namespace SuzukiCompanion.WebMVC.Controllers
         [Authorize]
         public ActionResult Index()
         {
-            var model = new StudentListItem[0];
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new StudentService(userId);
+            var model = service.GetStudents();
+
             return View(model);
         }
 
@@ -28,11 +33,29 @@ namespace SuzukiCompanion.WebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(StudentCreate model)
         {
-            if (ModelState.IsValid)
-            {
+            if (!ModelState.IsValid) return View(model);
 
-            }
+            var service = CreateStudentService();
+
+            if (service.CreateStudent(model))
+            {
+                TempData["SaveResult"] = "Your student was created.";
+                return RedirectToAction("Index");
+            };
+
+            ModelState.AddModelError("", "Your student could not be created.");
             return View(model);
+        }
+
+
+
+
+        // Helper Method
+        private StudentService CreateStudentService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new StudentService(userId);
+            return service;
         }
     }
 }

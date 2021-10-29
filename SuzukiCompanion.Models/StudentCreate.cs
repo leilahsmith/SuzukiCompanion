@@ -16,9 +16,8 @@ namespace SuzukiCompanion.Models
         [Required]
         public string LastName { get; set; }
         [Required]
-        [Display(Name = "Birthday")]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        public DateTimeOffset BirthDate { get; set; }
+        [Display(Name = "Age")]
+        public int Age { get; set; }
         [Display(Name = "Phone Number")]
         [Required]
         public string PhoneNumber { get; set; }
