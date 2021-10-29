@@ -23,6 +23,7 @@ namespace SuzukiCompanion.Models
         public string PhoneNumber { get; set; }
         [Display(Name = "Email Address")]
         [Required]
+        [EmailAddress]
         public string Email { get; set; }
         [Display(Name = "Location")]
         public string Location { get; set; }

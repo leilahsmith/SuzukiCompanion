@@ -10,6 +10,7 @@ namespace SuzukiCompanion.Models
     public class StudentEdit
     {
         public int StudentId { get; set; }
+        [EmailAddress]
         public string Email { get; set; }
         [Display(Name = "First Name")]
         public string FirstName { get; set; }

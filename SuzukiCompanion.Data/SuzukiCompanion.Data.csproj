@@ -63,6 +63,10 @@
     <Compile Include="Migrations\202110291843595_SecondMigration.Designer.cs">
       <DependentUpon>202110291843595_SecondMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202110292250440_EmailMigration.cs" />
+    <Compile Include="Migrations\202110292250440_EmailMigration.Designer.cs">
+      <DependentUpon>202110292250440_EmailMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Pdf.cs" />
     <Compile Include="Photo.cs" />
@@ -83,6 +87,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202110291843595_SecondMigration.resx">
       <DependentUpon>202110291843595_SecondMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110292250440_EmailMigration.resx">
+      <DependentUpon>202110292250440_EmailMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

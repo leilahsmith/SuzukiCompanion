@@ -74,7 +74,30 @@ namespace SuzukiCompanion.WebMVC.Controllers
                 };
             return View(model);
         }
+        //POST: Student/Edit
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, StudentEdit model)
+        {
+            if (!ModelState.IsValid) return View(model);
 
+            if (model.StudentId != id)
+            {
+                ModelState.AddModelError("", "Id Mismatch");
+                return View(model);
+            }
+
+            var service = CreateStudentService();
+
+            if (service.UpdateStudent(model))
+            {
+                TempData["SaveResult"] = "Your student was updated.";
+                return RedirectToAction("Index");
+            }
+
+            ModelState.AddModelError("", "Your student could not be updated.");
+            return View(model);
+        }
         // Helper Method
         private StudentService CreateStudentService()
         {

@@ -13,6 +13,7 @@ namespace SuzukiCompanion.Data
         public int StudentId { get; set; }
         [Required]
         public Guid OwnerId { get; set; }
+        [EmailAddress]
         public string Email { get; set; }
         [Display(Name = "First Name")]
         public string FirstName { get; set; }

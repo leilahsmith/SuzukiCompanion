@@ -53,6 +53,7 @@ namespace SuzukiCompanion.Services
                                     StudentId = e.StudentId,
                                     FirstName = e.FirstName,
                                     LastName = e.LastName,
+                                    Email = e.Email,
                                     Age = e.Age,
                                     PhoneNumber = e.PhoneNumber,
                                     Location = e.Location,
@@ -77,6 +78,7 @@ namespace SuzukiCompanion.Services
                         StudentId = entity.StudentId,
                         FirstName = entity.FirstName,
                         LastName = entity.LastName,
+                        Email = entity.Email,
                         Age = entity.Age,
                         PhoneNumber = entity.PhoneNumber,
                         Location = entity.Location,
@@ -96,6 +98,7 @@ namespace SuzukiCompanion.Services
                 
                 entity.FirstName = model.FirstName;
                 entity.LastName = model.LastName;
+                entity.Email = model.Email; 
                 entity.Age = model.Age;
                 entity.PhoneNumber = model.PhoneNumber;
                 entity.Location = model.Location;
