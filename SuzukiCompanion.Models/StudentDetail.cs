@@ -7,11 +7,10 @@ using System.Threading.Tasks;
 
 namespace SuzukiCompanion.Models
 {
-    public class StudentListItem
+    public class StudentDetail
     {
-        [Key]
         public int StudentId { get; set; }
-        [Required]
+        
         public Guid OwnerId { get; set; }
         public string Email { get; set; }
         [Display(Name = "First Name")]

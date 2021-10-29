@@ -53,9 +53,35 @@ namespace SuzukiCompanion.Services
                                     StudentId = e.StudentId,
                                     FirstName = e.FirstName,
                                     LastName = e.LastName,
+                                    Age = e.Age,
+                                    PhoneNumber = e.PhoneNumber,
+                                    Location = e.Location,
+                                    StartDate = DateTime.Now,
                                 }
                         );
                 return query.ToArray();
+            }
+        }
+
+        public StudentDetail GetStudentById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Students
+                        .Single(e => e.StudentId == id && e.OwnerId == _userId);
+                return
+                    new StudentDetail
+                    {
+                        StudentId = entity.StudentId,
+                        FirstName = entity.FirstName,
+                        LastName = entity.LastName,
+                        Age = entity.Age,
+                        PhoneNumber = entity.PhoneNumber,
+                        Location = entity.Location,
+                        StartDate = DateTime.Now,
+                    };
             }
         }
     }
