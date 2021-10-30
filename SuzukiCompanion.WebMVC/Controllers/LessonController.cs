@@ -1,6 +1,10 @@
-﻿using SuzukiCompanion.Models;
+﻿using Microsoft.AspNet.Identity;
+using SuzukiCompanion.Data;
+using SuzukiCompanion.Models;
+using SuzukiCompanion.Services;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -9,23 +13,18 @@ namespace SuzukiCompanion.WebMVC.Controllers
 {
     public class LessonController : Controller
     {
+       
         // GET: Lesson
         [Authorize]
         public ActionResult Index()
         {
-            var model = new LessonListItem[0];
+
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new LessonService(userId);
+            var model = service.GetLessons();
+
             return View(model);
         }
-
-
-        //public ActionResult Index()
-        //{
-        //    var userId = Guid.Parse(User.Identity.GetUserId());
-        //    var service = new LessonService(userId);
-        //    var model = service.GetLessons();
-
-        //    return View(model);
-        //}
 
         // GET: Lesson/Create
         //This is a request to get the "Create" view.
@@ -33,6 +32,35 @@ namespace SuzukiCompanion.WebMVC.Controllers
         {
             return View();
         }
+
+        // POST: Lesson/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(LessonCreate model)
+        {
+
+            if (!ModelState.IsValid) return View(model);
+
+            var service = CreateLessonService();
+
+            if (service.CreateLesson(model))
+            {
+                TempData["SaveResult"] = "Your lesson was created.";
+                return RedirectToAction("Index");
+            };
+
+            ModelState.AddModelError("", "Your lesson could not be created.");
+            return View(model);
+        }
+
+        private LessonService CreateLessonService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new LessonService(userId);
+            return service;
+        }
+
+
     }
 }
 //    // POST: Lesson/Create

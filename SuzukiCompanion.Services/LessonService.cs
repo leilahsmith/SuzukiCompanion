@@ -10,11 +10,17 @@ namespace SuzukiCompanion.Services
 {
     public class LessonService
     {
+        private readonly Guid _userId;
+        public LessonService(Guid userId)
+        {
+            _userId = userId;
+        }
         public bool CreateLesson(LessonCreate model)
         {
             var entity =
                 new Lesson()
                 {
+                    OwnerId = _userId,
                     LessonName = model.LessonName,
                     Contents = model.Contents,
                     CreatedUtc = DateTimeOffset.Now
