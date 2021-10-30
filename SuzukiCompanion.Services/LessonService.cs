@@ -97,7 +97,20 @@ namespace SuzukiCompanion.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+        public bool DeleteLesson(int lessonId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Lessons
+                        .Single(e => e.LessonId == lessonId && e.OwnerId == _userId);
 
+                ctx.Lessons.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }
 

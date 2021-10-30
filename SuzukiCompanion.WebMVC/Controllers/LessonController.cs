@@ -102,6 +102,33 @@ namespace SuzukiCompanion.WebMVC.Controllers
             ModelState.AddModelError("", "Sorry, your lesson could not be updated.");
             return View(model);
         }
+        //GET: Lesson/Delete
+        [ActionName("Delete")]
+        public ActionResult Delete(int id)
+        {
+            var svc = CreateLessonService();
+            var model = svc.GetLessonById(id);
+
+            return View(model);
+        }
+        // POST: Lesson/Delete
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteLesson(int id)
+        {
+            var service = CreateLessonService();
+
+            service.DeleteLesson(id);
+
+            TempData["SaveResult"] = "Your lesson was deleted";
+
+            return RedirectToAction("Index");
+        }
+
+
+
+
 
         //Helper method
         private LessonService CreateLessonService()
@@ -120,15 +147,7 @@ namespace SuzukiCompanion.WebMVC.Controllers
 
 
 
-//    //GET: Lesson/Delete
-//    [ActionName("Delete")]
-//    public ActionResult Delete(int id)
-//    {
-//        var svc = CreateLessonService();
-//        var model = svc.GetLessonById(id);
 
-//        return View(model);
-//    }
 
 //    //POST: Lesson/Delete
 //    [HttpPost]
