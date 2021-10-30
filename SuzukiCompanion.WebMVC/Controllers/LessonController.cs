@@ -13,7 +13,7 @@ namespace SuzukiCompanion.WebMVC.Controllers
 {
     public class LessonController : Controller
     {
-       
+
         // GET: Lesson
         [Authorize]
         public ActionResult Index()
@@ -53,16 +53,55 @@ namespace SuzukiCompanion.WebMVC.Controllers
             return View(model);
         }
 
-        //GET: Student/Details
-            public ActionResult Details(int id)
-            {
-                var svc = CreateLessonService();
-                var model = svc.GetLessonById(id);
+        //GET: Lesson/Details
+        public ActionResult Details(int id)
+        {
+            var svc = CreateLessonService();
+            var model = svc.GetLessonById(id);
 
-               return View(model);
+            return View(model);
+        }
+        //GET: Lesson/Edit
+        public ActionResult Edit(int id)
+        {
+            var service = CreateLessonService();
+            var detail = service.GetLessonById(id);
+            var model =
+                 new LessonEdit
+                 {
+                     LessonId = detail.LessonId,
+                     LessonName = detail.LessonName,
+                     Contents = detail.Contents,
+                     Pdf = detail.Pdf,
+                     Video = detail.Video,
+                     Photo = detail.Photo,
+                 };
+            return View(model);
+        }
+        //post: Lesson/Edit
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, LessonEdit model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            if (model.LessonId != id)
+            {
+                ModelState.AddModelError("", "Id Mismatch");
+                return View(model);
             }
 
+            var service = CreateLessonService();
 
+            if (service.UpdateLesson(model))
+            {
+                TempData["SaveResult"] = "Congratulations. Your lesson was updated.";
+                return RedirectToAction("Index");
+            }
+
+            ModelState.AddModelError("", "Sorry, your lesson could not be updated.");
+            return View(model);
+        }
 
         //Helper method
         private LessonService CreateLessonService()
@@ -75,76 +114,11 @@ namespace SuzukiCompanion.WebMVC.Controllers
 
     }
 }
-//    // POST: Lesson/Create
-//    [HttpPost]
-//    [ValidateAntiForgeryToken]
-//    public ActionResult Create(LessonCreate model)
-//    {
-//        if (!ModelState.IsValid) return View(model);
 
-//        var service = CreateLessonService();
 
-//        if (service.CreateLesson(model))
-//        {
-//            TempData["SaveResult"] = "Your lesson was created.";
-//            return RedirectToAction("Index");
-//        };
 
-//        ModelState.AddModelError("", "Your lesson could not be created.");
-//        return View(model);
-//    }
 
-//    //GET: Student/Details
-//    public ActionResult Details(int id)
-//    {
-//        var svc = CreateLessonService();
-//        var model = svc.GetLessonById(id);
 
-//        return View(model);
-//    }
-
-//    public ActionResult Edit(int id)
-//    {
-//        var service = CreateLessonService();
-//        var detail = service.GetLessonById(id);
-//        var model =
-//            new LessonEdit
-//            {
-//                StudentId = detail.StudentId,
-//                FirstName = detail.FirstName,
-//                LastName = detail.LastName,
-//                Email = detail.Email,
-//                Age = detail.Age,
-//                PhoneNumber = detail.PhoneNumber,
-//                Location = detail.Location,
-//                ModifiedUtc = detail.ModifiedUtc,
-//            };
-//        return View(model);
-//    }
-//    //POST: Lesson/Edit
-//    [HttpPost]
-//    [ValidateAntiForgeryToken]
-//    public ActionResult Edit(int id, LessonEdit model)
-//    {
-//        if (!ModelState.IsValid) return View(model);
-
-//        if (model.LessonId != id)
-//        {
-//            ModelState.AddModelError("", "Id Mismatch");
-//            return View(model);
-//        }
-
-//        var service = CreateLessonService();
-
-//        if (service.UpdateLesson(model))
-//        {
-//            TempData["SaveResult"] = "Your lesson was updated.";
-//            return RedirectToAction("Index");
-//        }
-
-//        ModelState.AddModelError("", "Your lesson could not be updated.");
-//        return View(model);
-//    }
 
 //    //GET: Lesson/Delete
 //    [ActionName("Delete")]

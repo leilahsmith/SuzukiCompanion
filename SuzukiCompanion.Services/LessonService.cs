@@ -77,7 +77,26 @@ namespace SuzukiCompanion.Services
                     };
             }
         }
+        public bool UpdateLesson(LessonEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Lessons
+                        .Single(e => e.LessonId == model.LessonId && e.OwnerId == _userId);
 
+                
+                entity.LessonName = model.LessonName;
+                entity.Contents = model.Contents;
+                entity.Pdf = model.Pdf;
+                entity.Video = model.Video;
+                entity.Photo = model.Photo;
+                entity.ModifiedUtc = DateTimeOffset.UtcNow;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
 
     }
 }
