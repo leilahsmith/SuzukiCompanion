@@ -15,10 +15,11 @@ namespace SuzukiCompanion.Data
         public Guid OwnerId { get; set; }
         [Required]
         [Display(Name = "Your Lesson Title")]
-        public string LessonTitle { get; set; }
+        public string LessonName { get; set; }
         [Required]
         public DateTimeOffset CreatedUtc { get; set; }
         public DateTimeOffset? ModifiedUtc { get; set; }
+        public string Contents { get; set; }
         public string Pdf { get; set; }
         public string Video { get; set; }
         public string Photo { get; set; }
