@@ -12,7 +12,7 @@ namespace SuzukiCompanion.Data
         [Key]
         public int PhotoId { get; set; }
         [Required]
-        public string VideoTitle { get; set; }
+        public string PhotoTitle { get; set; }
 
         [Required]
         public DateTimeOffset CreatedUtc { get; set; }

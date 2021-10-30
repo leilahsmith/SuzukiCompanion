@@ -28,6 +28,7 @@ namespace SuzukiCompanion.WebMVC.Controllers
 
         // GET: Lesson/Create
         //This is a request to get the "Create" view.
+        [Authorize(Roles ="Admin")]
         public ActionResult Create()
         {
             return View();
@@ -36,6 +37,7 @@ namespace SuzukiCompanion.WebMVC.Controllers
         // POST: Lesson/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult Create(LessonCreate model)
         {
 
@@ -62,6 +64,7 @@ namespace SuzukiCompanion.WebMVC.Controllers
             return View(model);
         }
         //GET: Lesson/Edit
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int id)
         {
             var service = CreateLessonService();
@@ -81,6 +84,7 @@ namespace SuzukiCompanion.WebMVC.Controllers
         //post: Lesson/Edit
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int id, LessonEdit model)
         {
             if (!ModelState.IsValid) return View(model);
@@ -104,6 +108,7 @@ namespace SuzukiCompanion.WebMVC.Controllers
         }
         //GET: Lesson/Delete
         [ActionName("Delete")]
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int id)
         {
             var svc = CreateLessonService();
@@ -115,6 +120,7 @@ namespace SuzukiCompanion.WebMVC.Controllers
         [HttpPost]
         [ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult DeleteLesson(int id)
         {
             var service = CreateLessonService();
