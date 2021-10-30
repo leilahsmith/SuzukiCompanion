@@ -54,6 +54,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LessonCreate.cs" />
+    <Compile Include="LessonListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuizModel.cs" />
     <Compile Include="StudentCreate.cs" />
