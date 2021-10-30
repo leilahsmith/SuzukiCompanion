@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="LessonCreate.cs" />
+    <Compile Include="LessonDetail.cs" />
     <Compile Include="LessonListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuizModel.cs" />

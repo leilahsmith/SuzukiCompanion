@@ -53,6 +53,18 @@ namespace SuzukiCompanion.WebMVC.Controllers
             return View(model);
         }
 
+        //GET: Student/Details
+            public ActionResult Details(int id)
+            {
+                var svc = CreateLessonService();
+                var model = svc.GetLessonById(id);
+
+               return View(model);
+            }
+
+
+
+        //Helper method
         private LessonService CreateLessonService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());

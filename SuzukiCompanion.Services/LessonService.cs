@@ -46,12 +46,39 @@ namespace SuzukiCompanion.Services
                                     LessonId = e.LessonId,
                                     LessonName = e.LessonName,
                                     Contents = e.Contents,
+                                    Pdf = e.Pdf,
+                                    Video = e.Video,
+                                    Photo = e.Photo,
                                 }
                         );
 
                 return query.ToArray();
             }
         }
+        public LessonDetail GetLessonById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Lessons
+                        .Single(e => e.LessonId == id && e.OwnerId == _userId);
+                return
+                    new LessonDetail
+                    {
+                        LessonId = entity.LessonId,
+                        LessonName = entity.LessonName,
+                        Contents = entity.Contents,
+                        CreatedUtc = entity.CreatedUtc,
+                        ModifiedUtc = entity.ModifiedUtc,
+                        Pdf = entity.Pdf,
+                        Video = entity.Video,
+                        Photo = entity.Photo,
+                    };
+            }
+        }
+
+
     }
 }
 

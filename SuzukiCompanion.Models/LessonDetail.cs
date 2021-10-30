@@ -7,17 +7,14 @@ using System.Threading.Tasks;
 
 namespace SuzukiCompanion.Models
 {
-    public class LessonListItem
+    public class LessonDetail
     {
-        [Key]
         public int LessonId { get; set; }
-        [Required]
-        [Display(Name = "Lesson Name")]
+        [Display(Name = "Lesson Title")]
         public string LessonName { get; set; }
-        [Required]
         [Display(Name = "Created")]
         public DateTimeOffset CreatedUtc { get; set; }
-        [Display(Name = "Edited Date")]
+        [Display(Name = "Modified")]
         public DateTimeOffset? ModifiedUtc { get; set; }
         public string Contents { get; set; }
         public string Pdf { get; set; }
@@ -25,4 +22,3 @@ namespace SuzukiCompanion.Models
         public string Photo { get; set; }
     }
 }
-
