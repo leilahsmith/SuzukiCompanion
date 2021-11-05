@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Suzuki Companion App</title>
+    <title>@ViewBag.Title - Suzuki Companion</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
@@ -16,34 +16,41 @@
 
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <div class="container-fluid">
-                @Html.ActionLink("Suzuki Companion App", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                <div class="collapse navbar-collapse" id="navbarColor01">
-                    <ul class="navbar-nav me-auto">
-                        <li class="nav-item">
-                            <span class="visually-hidden"></span>
+                <ul class="navbar-nav me-auto">
+                    @Html.ActionLink("Suzuki Companion", "Index", "Home", new { area = "" }, new { @class = "nav-link" })
+                </ul>
 
-                            @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })
-                        </li>
-                        @if (User.Identity.IsAuthenticated)
-                        {
-                            <li class="nav-item">@Html.ActionLink("Students", "Index", "Student", new { area = "" }, new { @class = "nav-link" })</li>
-                            <li class="nav-item">@Html.ActionLink("Lessons", "Index", "Lesson", new { area = "" }, new { @class = "nav-link" })</li>
-                        }
-                        <li class="nav-item">@Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                        <li class="nav-item">@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    </ul>
-                    <ul class="navbar-right" style="color: white" style="background-color: black">
-                        <li>
-                            @Html.Partial("_LoginPartial")
-                        </li>
-                </div>
+                    <div class="collapse navbar-collapse" id="navbarColor01">
+                        <ul class="navbar-nav me-auto">
+                            <li class="nav-item">
+                                <span class="visually-hidden"></span>
+
+                                @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })
+                            </li>
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <li class="nav-item">@Html.ActionLink("Students", "Index", "Student", new { area = "" }, new { @class = "nav-link" })</li>
+                                <li class="nav-item">@Html.ActionLink("Lessons", "Index", "Lesson", new { area = "" }, new { @class = "nav-link" })</li>
+                            }
+                            <li class="nav-item">@Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                            <li class="nav-item">@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                        </ul>
+                                    @Html.Partial("_LoginPartial")
+                        
+                    </div>
             </div>
         </nav>
     </div>
     <!-- Navbar End -->
     <!-- Hero -->
     <section class="hero">
-    <div class="hero-image"></div>
+        <div class="hero-image">
+            <div class="hero-title-text">
+                <h1 class="h4">Suzuki Companion</h1>
+                <p class="titledesc">An app to help nurture your child's character through the study of music.</p>
+                <button>Register Now</button>
+            </div>
+        </div>
     </section>
     <!-- Hero End -->
 
