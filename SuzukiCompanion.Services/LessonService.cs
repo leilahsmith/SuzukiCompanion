@@ -10,17 +10,17 @@ namespace SuzukiCompanion.Services
 {
     public class LessonService
     {
-        private readonly Guid _userId;
-        public LessonService(Guid userId)
+        private readonly Guid _lessonId;
+        public LessonService(Guid lessonId)
         {
-            _userId = userId;
+            _lessonId = lessonId;
         }
         public bool CreateLesson(LessonCreate model)
         {
             var entity =
                 new Lesson()
                 {
-                    OwnerId = _userId,
+                    OwnerId = _lessonId,
                     LessonName = model.LessonName,
                     Contents = model.Contents,
                     CreatedUtc = DateTimeOffset.Now
@@ -39,6 +39,7 @@ namespace SuzukiCompanion.Services
                 var query =
                     ctx
                         .Lessons
+                        .Where(e => e.OwnerId == _lessonId)
                         .Select(
                             e =>
                                 new LessonListItem
@@ -59,10 +60,10 @@ namespace SuzukiCompanion.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity =
+                var entity = 
                     ctx
                         .Lessons
-                        .Single(e => e.LessonId == id && e.OwnerId == _userId);
+                        .Single(e => e.LessonId == id && e.OwnerId == _lessonId);
                 return
                     new LessonDetail
                     {
@@ -84,7 +85,7 @@ namespace SuzukiCompanion.Services
                 var entity =
                     ctx
                         .Lessons
-                        .Single(e => e.LessonId == model.LessonId && e.OwnerId == _userId);
+                        .Single(e => e.LessonId == model.LessonId && e.OwnerId == _lessonId);
 
                 
                 entity.LessonName = model.LessonName;
@@ -104,7 +105,7 @@ namespace SuzukiCompanion.Services
                 var entity =
                     ctx
                         .Lessons
-                        .Single(e => e.LessonId == lessonId && e.OwnerId == _userId);
+                        .Single(e => e.LessonId == lessonId && e.OwnerId == _lessonId);
 
                 ctx.Lessons.Remove(entity);
 

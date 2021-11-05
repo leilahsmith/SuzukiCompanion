@@ -13,7 +13,7 @@ namespace SuzukiCompanion.WebMVC.Controllers
 {
     public class LessonController : Controller
     {
-
+        private ApplicationDbContext _db = new ApplicationDbContext();
         // GET: Lesson
         [Authorize]
         public ActionResult Index()
