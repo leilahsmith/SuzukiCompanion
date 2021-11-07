@@ -34,6 +34,7 @@ namespace SuzukiCompanion.Data
 
         //Databases go here
         public DbSet<Student> Students { get; set; }
+        public DbSet<Teacher> Teachers { get; set; }
         public DbSet<Lesson> Lessons { get; set; }
         public DbSet<Quiz> Quizzes { get; set; }
         public DbSet<Result> Results { get; set; }
