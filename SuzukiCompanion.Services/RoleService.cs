@@ -26,6 +26,10 @@ namespace SuzukiCompanion.Services
             {
                 roleManager.Create(new IdentityRole("Student"));
             }
+            if (!roleManager.RoleExists("Teacher"))
+            {
+                roleManager.Create(new IdentityRole("Teacher"));
+            }
         }
         public void MakeMyUserAdmin()
         {

@@ -7,10 +7,19 @@
 <h2>Create a Lesson</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
+
+    if (User.Identity.IsAuthenticated)
+    {
+
+        if (User.IsInRole("admin"))
+        {
     
+       
+
+
     <div class="form-horizontal">
         <h4>Lesson Create</h4>
         <hr />
@@ -37,7 +46,10 @@
             </div>
         </div>
     </div>
+        }
+    }
 }
+    
 
 <div>
     @Html.ActionLink("Back to List", "Index")

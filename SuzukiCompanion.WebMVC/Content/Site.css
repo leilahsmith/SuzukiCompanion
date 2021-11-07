@@ -65,10 +65,13 @@
         padding-bottom: 20px;
     }
 
+    .homepage-body{
+        text-align: center;
+    }
     /* Set padding to keep content from hitting the edges */
     .body-content {
-        padding-left: 15px;
-        padding-right: 15px;
+        padding-left: 0px;
+        padding-right: 0px;
     }
 
     /* Override the default bootstrap behavior where horizontal description lists 
@@ -454,9 +457,10 @@
         background-color: #1a1a1a;
         border-color: #1a1a1a;
     }
-    .button1 {
+
+    .fcc-btn {
         width: 250px;
-        padding: 5px 6px;
+        padding: 15px 25px;
         font-family: serif;
         font-weight: bold;
         font-size: 20px;
@@ -464,7 +468,13 @@
         opacity: 0.9;
         filter: 40%;
         margin: 1.5em;
+        background-color: white;
+        text-decoration: none;
+        border-width: 2px;
+        border-style: outset;
+
     }
+    
     :root {
         --bs-blue: #007bff;
         --bs-indigo: #6610f2;
@@ -584,5 +594,47 @@
 
 .homepage-body {
     font-size: 2rem;
+    text-justify: auto;
+}
+.contact-info {
+    font-size: 2.5rem;
+}
+.action-links {
+    width: 250px;
+    padding: 15px 25px;
+    font-family: serif;
+    font-weight: bold;
+    font-size: 15px;
+    color: black;
+    margin: 1.5em;
+    background-color: white;
+    text-decoration: none;
+    border-width: 2px;
+    border-style: outset;
+}
+/*Lesson View CSS */
+.ul-lesson {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.li a-lesson {
+    display: block;
+    width: 60px;
+}
+.active {
+    background-color: #04AA6D;
+    color: white;
+}
+.ul-lesson {
+    border: 1px solid #555;
 }
 
+.li-lesson {
+    text-align: center;
+    border-bottom: 1px solid #555;
+}
+
+    li:last-child {
+        border-bottom: none;
+    }

@@ -6,9 +6,18 @@
 
 <h2>Lessons</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+@if (User.Identity.IsAuthenticated)
+{
+
+    if (User.IsInRole("admin"))
+    {
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+    }
+
+}
+
 @if (TempData.ContainsKey("SaveResult"))
 {
     <div class="alert alert-success fade in" role="alert">
@@ -19,12 +28,14 @@
         @TempData["SaveResult"]
     </div>
 }
-<table class="table">
+
+<table class="table homepage-body">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.LessonName)
         </th>
-        <th>
+
+        @*<th>
             @Html.DisplayNameFor(model => model.CreatedUtc)
         </th>
         <th>
@@ -32,7 +43,7 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Contents)
-        </th>
+        </th>*@
         <th></th>
     </tr>
 
@@ -42,7 +53,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.LessonName)
             </td>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.CreatedUtc)
             </td>
             <td>
@@ -50,13 +61,20 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Contents)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.LessonId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.LessonId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.LessonId })
-            </td>
+            </td>*@
+        <td>
+            @Html.ActionLink("Create", "Create", new { id = item.LessonId }, new { @class = "action-links" })
+            @Html.ActionLink("Edit", "Edit", new { id = item.LessonId }, new { @class = "action-links" })
+            @Html.ActionLink("Details", "Details", new { id = item.LessonId }, new { @class = "action-links" })
+            @Html.ActionLink("Delete", "Delete", new { id = item.LessonId }, new { @class = "action-links" })
+        </td>
         </tr>
     }
-
 </table>
+@*Vertical Nav Bar Code*@
+<ul class="ul-lesson li a-lesson active li-lesson">
+    <li><a href="default.asp">Lesson 1: Introduction</a></li>
+    <li><a href="news.asp">Lesson 2: Pre-Twinkles</a></li>
+    <li><a href="contact.asp">Lesson 3: Twinkle A</a></li>
+    <li><a href="about.asp">Lesson 4: Twinkle B</a></li>
+</ul>
