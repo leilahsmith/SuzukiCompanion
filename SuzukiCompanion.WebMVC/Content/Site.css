@@ -365,7 +365,6 @@
         flex-direction: row;
         margin-bottom: 0;
         font-size: 2em;
-      
     }
 
     .container,
@@ -382,7 +381,7 @@
         margin-left: auto;
     }
     /* Button Code */
-    button {
+    .button {
         /* appearance: auto; */
         /* -webkit-writing-mode: horizontal-tb !important;
     font-style: ;
@@ -409,22 +408,22 @@
         /* box-sizing: border-box; */
         /* background-color: -internal-light-dark(rgb(239, 239, 239), rgb(59, 59, 59));
     margin: 0em;
-    padding: 1px 6px;
-    border-width: 2px;
+    padding: 1px 6px;*/
+    border-width: 3px;
     border-style: outset;
-    border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
-    border-image: initial; */
+  /*  border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));*/
+    /*border-image: initial; */
     }
-
-    button, [type="button"], [type="reset"], [type="submit"] {
+    
+    .button, [type="button"], [type="reset"], [type="submit"] {
         -webkit-appearance: button;
     }
 
-    button, select {
+    .button, select {
         text-transform: none;
     }
 
-    button {
+    .button {
         border-radius: 0;
     }
 
@@ -446,7 +445,7 @@
         text-transform: uppercase;
     }
 
-    button, [type="button"], [type="reset"], [type="submit"] {
+    .button, [type="button"], [type="reset"], [type="submit"] {
         -webkit-appearance: button;
     }
 
@@ -455,7 +454,17 @@
         background-color: #1a1a1a;
         border-color: #1a1a1a;
     }
-
+    .button1 {
+        width: 250px;
+        padding: 5px 6px;
+        font-family: serif;
+        font-weight: bold;
+        font-size: 20px;
+        color: black;
+        opacity: 0.9;
+        filter: 40%;
+        margin: 1.5em;
+    }
     :root {
         --bs-blue: #007bff;
         --bs-indigo: #6610f2;
@@ -511,7 +520,7 @@
     }
     /* The hero image */
     .hero-image {
-        background-image: url("../Views/Home/HeroImage.png");
+        background-image: url("../Content/Images1/HeroImage.png");
         /* Set a specific height */
         height: 70%;
         /* Position and center the image to scale nicely on all screens */
@@ -520,6 +529,7 @@
         background-size: cover;
         position: relative;
     }
+
     body {
         margin: 0;
         padding: 0;
@@ -533,6 +543,7 @@
         justify-content: center;
         align-items: center;
     }
+
         .hero::before {
             content: "";
             position: absolute;
@@ -549,6 +560,7 @@
 
     .hero-content {
         position: relative;
+        border-width: 5px;
     }
 }
 /* Place text in the middle of the image */
@@ -558,17 +570,19 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    
 }
-.h4{
+
+.h4 {
     color: white;
     font-size: 10rem;
 }
-.titledesc{
 
+.titledesc {
     color: white;
     font-size: 3rem;
 }
-.homepage-body{
+
+.homepage-body {
     font-size: 2rem;
 }
+

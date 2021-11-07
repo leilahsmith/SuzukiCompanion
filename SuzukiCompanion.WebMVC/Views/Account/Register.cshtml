@@ -30,6 +30,17 @@
         </div>
     </div>
     <div class="form-group">
+        @Html.LabelFor(model => model.UserType, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-4">
+            @Html.DropDownListFor(e => e.UserType, new SelectListItem[]
+            {
+                new SelectListItem {Value = "Teacher", Text = "Teacher"},
+                new SelectListItem {Value = "Student", Text = "Student"},
+            }, "--Select User Type--", new { @class = "form-control", title = "The employee could be of the listed job titles" })
+            @Html.ValidationMessageFor(model => model.UserType, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
             <input type="submit" class="btn btn-default" value="Register" />
         </div>

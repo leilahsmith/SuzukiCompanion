@@ -10,18 +10,18 @@ namespace SuzukiCompanion.Services
 {
     public class StudentService
     {
-        private readonly Guid _userId;
+        private readonly Guid _studentId;
 
-        public StudentService(Guid userId)
+        public StudentService(Guid studentId)
         {
-            _userId = userId;
+            _studentId = studentId;
         }
         public bool CreateStudent(StudentCreate model)
         {
             var entity =
                 new Student()
                 {
-                    OwnerId = _userId,
+                    OwnerId = _studentId,
                     Email = model.Email,
                     FirstName = model.FirstName,
                     LastName = model.LastName,
@@ -45,7 +45,7 @@ namespace SuzukiCompanion.Services
                 var query =
                     ctx
                         .Students
-                        .Where(e => e.OwnerId == _userId)
+                        .Where(e => e.OwnerId == _studentId)
                         .Select(
                             e =>
                                 new StudentListItem
@@ -71,7 +71,7 @@ namespace SuzukiCompanion.Services
                 var entity =
                     ctx
                         .Students
-                        .Single(e => e.StudentId == id && e.OwnerId == _userId);
+                        .Single(e => e.StudentId == id && e.OwnerId == _studentId);
                 return
                     new StudentDetail
                     {
@@ -93,7 +93,7 @@ namespace SuzukiCompanion.Services
                 var entity =
                     ctx
                         .Students
-                        .Single(e => e.StudentId == model.StudentId && e.OwnerId == _userId);
+                        .Single(e => e.StudentId == model.StudentId && e.OwnerId == _studentId);
 
                 
                 entity.FirstName = model.FirstName;
@@ -114,7 +114,7 @@ namespace SuzukiCompanion.Services
                 var entity =
                     ctx
                         .Students
-                        .Single(e => e.StudentId == studentId && e.OwnerId == _userId);
+                        .Single(e => e.StudentId == studentId && e.OwnerId == _studentId);
 
                 ctx.Students.Remove(entity);
 
