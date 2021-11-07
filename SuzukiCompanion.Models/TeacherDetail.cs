@@ -36,4 +36,4 @@ namespace SuzukiCompanion.Models
         public DateTimeOffset? ModifiedUtc { get; set; }
     }
 }
-}
+

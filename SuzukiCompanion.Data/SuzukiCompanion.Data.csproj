@@ -75,6 +75,10 @@
     <Compile Include="Migrations\202110301451010_AuthorizationMigration.Designer.cs">
       <DependentUpon>202110301451010_AuthorizationMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202111071834202_TeacherMigration.cs" />
+    <Compile Include="Migrations\202111071834202_TeacherMigration.Designer.cs">
+      <DependentUpon>202111071834202_TeacherMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Pdf.cs" />
     <Compile Include="Photo.cs" />
@@ -105,6 +109,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202110301451010_AuthorizationMigration.resx">
       <DependentUpon>202110301451010_AuthorizationMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111071834202_TeacherMigration.resx">
+      <DependentUpon>202111071834202_TeacherMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

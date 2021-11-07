@@ -4,7 +4,7 @@
     .navbar-expand-lg .navbar-collapse {
         display: -ms-flexbox !important;
         display: flex !important;
-        -ms-flex-preferred-size: auto;
+        /*   -ms-flex-preferred-size: auto;*/
         flex-basis: auto;
     }
 }
@@ -60,19 +60,23 @@
         flex: 1 0 0%;
     }
 
-    body {
+    .body {
         padding-top: 50px;
-        padding-bottom: 20px;
+        padding-bottom: 0px;
     }
 
-    .homepage-body{
+    .homepage-body {
         text-align: center;
+        margin-top: 20px;
     }
     /* Set padding to keep content from hitting the edges */
     .body-content {
         padding-left: 0px;
         padding-right: 0px;
+        margin-top: 0px;
     }
+
+
 
     /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
@@ -197,7 +201,7 @@
     }
 
         .row > * {
-            -ms-flex-negative: 0;
+            /*  -ms-flex-negative: 0;*/
             flex-shrink: 0;
             width: 100%;
             max-width: 100%;
@@ -251,8 +255,8 @@
     }
 
     .navbar-nav .nav-link {
-        padding-right: 50;
-        padding-left: 50;
+        padding-right: 50px;
+        padding-left: 50px;
     }
 
     .bg-primary {
@@ -264,9 +268,9 @@
 
 
     .navbar-collapse {
-        -ms-flex-preferred-size: 100%;
+        /*   -ms-flex-preferred-size: 100%;*/
         flex-basis: 100%;
-        -ms-flex-positive: 1;
+        /*      -ms-flex-positive: 1;*/
         flex-grow: 1;
         -ms-flex-align: center;
         align-items: center;
@@ -398,7 +402,7 @@
     font-family: ; */
         text-rendering: auto;
         /* color: -internal-light-dark(black, white); */
-        letter-spacing: .5;
+        letter-spacing: .5px;
         word-spacing: normal;
         /* line-height: normal; */
         /* text-transform: none; */
@@ -412,12 +416,12 @@
         /* background-color: -internal-light-dark(rgb(239, 239, 239), rgb(59, 59, 59));
     margin: 0em;
     padding: 1px 6px;*/
-    border-width: 3px;
-    border-style: outset;
-  /*  border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));*/
-    /*border-image: initial; */
+        border-width: 3px;
+        border-style: outset;
+        /*  border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));*/
+        /*border-image: initial; */
     }
-    
+
     .button, [type="button"], [type="reset"], [type="submit"] {
         -webkit-appearance: button;
     }
@@ -444,18 +448,29 @@
     }
 
     .btn {
-        font-size: 0.875rem;
+        font-size: 1.5rem;
         text-transform: uppercase;
+        width: 250px;
+        padding: 15px 25px;
     }
-
+/*
     .button, [type="button"], [type="reset"], [type="submit"] {
         -webkit-appearance: button;
-    }
+    }*/
 
     .btn-primary {
-        color: #fff;
-        background-color: #1a1a1a;
+        color: #1a1a1a;
+        background-color: #fff;
         border-color: #1a1a1a;
+        display: inline-block;
+    }
+    .btn-login {
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        width: 100px;
+        padding: 15px 15px;
+        color: white;
+        background-color: #1a1a1a;
     }
 
     .fcc-btn {
@@ -466,15 +481,14 @@
         font-size: 20px;
         color: black;
         opacity: 0.9;
-        filter: 40%;
         margin: 1.5em;
         background-color: white;
         text-decoration: none;
         border-width: 2px;
         border-style: outset;
-
+        display: inline-block;
     }
-    
+
     :root {
         --bs-blue: #007bff;
         --bs-indigo: #6610f2;
@@ -538,9 +552,12 @@
         background-repeat: no-repeat;
         background-size: cover;
         position: relative;
+        justify-content: center;
+        align-items: center;
+        display: inline-block;
     }
 
-    body {
+    .body {
         margin: 0;
         padding: 0;
     }
@@ -596,9 +613,11 @@
     font-size: 2rem;
     text-justify: auto;
 }
+
 .contact-info {
     font-size: 2.5rem;
 }
+
 .action-links {
     width: 250px;
     padding: 15px 25px;
@@ -618,14 +637,17 @@
     margin: 0;
     padding: 0;
 }
+
 .li a-lesson {
     display: block;
     width: 60px;
 }
+
 .active {
     background-color: #04AA6D;
     color: white;
 }
+
 .ul-lesson {
     border: 1px solid #555;
 }
@@ -635,6 +657,6 @@
     border-bottom: 1px solid #555;
 }
 
-    li:last-child {
-        border-bottom: none;
-    }
+li:last-child {
+    border-bottom: none;
+}

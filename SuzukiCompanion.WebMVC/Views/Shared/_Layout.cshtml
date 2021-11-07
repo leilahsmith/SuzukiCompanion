@@ -33,6 +33,7 @@
                             if (User.IsInRole("admin"))
                             {
                                 <li class="nav-item">@Html.ActionLink("Students", "Index", "Student", new { area = "" }, new { @class = "nav-link" })</li>
+                                <li class="nav-item">@Html.ActionLink("Teachers", "Index", "Teacher", new { area = "" }, new { @class = "nav-link" })</li>
                             }
                             <li class="nav-item">@Html.ActionLink("Lessons", "Index", "Lesson", new { area = "" }, new { @class = "nav-link" })</li>
                         }
@@ -48,13 +49,13 @@
     </div>
     
 
-    <div class="container body-content">
+
         @RenderBody()
         <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year - Leilah's Music Studio</p>
         </footer>
-    </div>
+ 
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

@@ -3,9 +3,9 @@
     ViewBag.Title = "Register";
 }
 
-<h2>@ViewBag.Title.</h2>
+<h2>@ViewBag.Title</h2>
 
-@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+@using (Html.BeginForm("Account", "Register", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     @Html.AntiForgeryToken()
     <h4>Create a new account.</h4>
@@ -36,7 +36,7 @@
             {
                 new SelectListItem {Value = "Teacher", Text = "Teacher"},
                 new SelectListItem {Value = "Student", Text = "Student"},
-            }, "--Select User Type--", new { @class = "form-control", title = "The employee could be of the listed job titles" })
+            }, "--Select User Type--", new { @class = "form-control", title = "The user could be of the listed roles." })
             @Html.ValidationMessageFor(model => model.UserType, "", new { @class = "text-danger" })
         </div>
     </div>
