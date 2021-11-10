@@ -98,6 +98,7 @@
         font-weight: 600;
         line-height: 1.2;
         color: #1a1a1a;
+        text-align: center;
     }
 
     h1, .h1 {
@@ -660,3 +661,4 @@
 li:last-child {
     border-bottom: none;
 }
+

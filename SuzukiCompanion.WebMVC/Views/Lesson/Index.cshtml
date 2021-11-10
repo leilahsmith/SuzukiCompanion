@@ -11,9 +11,13 @@
 
     if (User.IsInRole("Admin"))
     {
-        <p>
-            @Html.ActionLink("Create New", "Create")
-        </p>
+
+        <div class="homepage-body">
+
+               
+                    @Html.ActionLink("Create New Lesson", "Create", new { area = "" }, new { @class = "btn btn-primary" })
+           
+        </div>
     }
 
 }
@@ -28,14 +32,16 @@
         @TempData["SaveResult"]
     </div>
 }
-
-<table class="table homepage-body">
+<div class="homepage-body table-bordered">
+    <p><u>List of Lessons </u> </p>
+</div>
+<table class="table homepage-body table-bordered">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.LessonName)
-        </th>
-
         @*<th>
+            @Html.DisplayNameFor(model => model.LessonName)
+        </th>*@
+
+    @*<th>
             @Html.DisplayNameFor(model => model.CreatedUtc)
         </th>
         <th>
@@ -44,7 +50,7 @@
         <th>
             @Html.DisplayNameFor(model => model.Contents)
         </th>*@
-        <th></th>
+    @*<th>List of Lessons</th>*@
     </tr>
 
     @foreach (var item in Model)
@@ -54,27 +60,20 @@
                 @Html.DisplayFor(modelItem => item.LessonName)
             </td>
             @*<td>
-                @Html.DisplayFor(modelItem => item.CreatedUtc)
-            </td>
+                    @Html.DisplayFor(modelItem => item.CreatedUtc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ModifiedUtc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Contents)
+                </td>*@
             <td>
-                @Html.DisplayFor(modelItem => item.ModifiedUtc)
+
+                @Html.ActionLink("Edit", "Edit", new { id = item.LessonId }, new { @class = "action-links" })
+                @Html.ActionLink("Details", "Details", new { id = item.LessonId }, new { @class = "action-links" })
+                @Html.ActionLink("Delete", "Delete", new { id = item.LessonId }, new { @class = "action-links" })
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Contents)
-            </td>*@
-        <td>
-            @Html.ActionLink("Create", "Create", new { id = item.LessonId }, new { @class = "action-links" })
-            @Html.ActionLink("Edit", "Edit", new { id = item.LessonId }, new { @class = "action-links" })
-            @Html.ActionLink("Details", "Details", new { id = item.LessonId }, new { @class = "action-links" })
-            @Html.ActionLink("Delete", "Delete", new { id = item.LessonId }, new { @class = "action-links" })
-        </td>
         </tr>
     }
 </table>
-@*Vertical Nav Bar Code*@
-<ul class="ul-lesson li a-lesson active li-lesson">
-    <li><a href="default.asp">Lesson 1: Introduction</a></li>
-    <li><a href="news.asp">Lesson 2: Pre-Twinkles</a></li>
-    <li><a href="contact.asp">Lesson 3: Twinkle A</a></li>
-    <li><a href="about.asp">Lesson 4: Twinkle B</a></li>
-</ul>
