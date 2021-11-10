@@ -87,6 +87,10 @@
     <Compile Include="Migrations\202111092354546_roleAdjustTwo.Designer.cs">
       <DependentUpon>202111092354546_roleAdjustTwo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202111102006075_fix.cs" />
+    <Compile Include="Migrations\202111102006075_fix.Designer.cs">
+      <DependentUpon>202111102006075_fix.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Pdf.cs" />
     <Compile Include="Photo.cs" />
@@ -126,6 +130,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202111092354546_roleAdjustTwo.resx">
       <DependentUpon>202111092354546_roleAdjustTwo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111102006075_fix.resx">
+      <DependentUpon>202111102006075_fix.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

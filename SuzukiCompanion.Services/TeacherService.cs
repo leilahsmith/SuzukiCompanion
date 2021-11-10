@@ -11,18 +11,18 @@ namespace SuzukiCompanion.Services
     public class TeacherService
     {
         
-        private readonly Guid _teacherId;
+        private readonly Guid ___userId;
 
-        public TeacherService(Guid teacherId)
+        public TeacherService(Guid __userId)
         {
-            _teacherId = teacherId;
+            ___userId = __userId;
         }
         public bool CreateTeacher(TeacherCreate model)
         {
             var entity =
                 new Teacher()
                 {
-                    OwnerId = _teacherId,
+                    OwnerId = ___userId,
                     Email = model.Email,
                     FirstName = model.FirstName,
                     LastName = model.LastName,
@@ -44,7 +44,7 @@ namespace SuzukiCompanion.Services
                 var query =
                     ctx
                         .Teachers
-                        .Where(e => e.OwnerId == _teacherId)
+                        .Where(e => e.OwnerId == ___userId)
                         .Select(
                             e =>
                                 new TeacherListItem
@@ -69,7 +69,7 @@ namespace SuzukiCompanion.Services
                 var entity =
                     ctx
                         .Teachers
-                        .Single(e => e.TeacherId == id && e.OwnerId == _teacherId);
+                        .Single(e => e.TeacherId == id && e.OwnerId == ___userId);
                 return
                     new TeacherDetail
                     {
@@ -90,7 +90,7 @@ namespace SuzukiCompanion.Services
                 var entity =
                     ctx
                         .Teachers
-                        .Single(e => e.TeacherId == model.TeacherId && e.OwnerId == _teacherId);
+                        .Single(e => e.TeacherId == model.TeacherId && e.OwnerId == ___userId);
 
 
                 entity.FirstName = model.FirstName;
@@ -103,14 +103,14 @@ namespace SuzukiCompanion.Services
                 return ctx.SaveChanges() == 1;
             }
         }
-        public bool DeleteTeacher(int teacherId)
+        public bool DeleteTeacher(int __userId)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                         .Teachers
-                        .Single(e => e.TeacherId == teacherId && e.OwnerId == _teacherId);
+                        .Single(e => e.TeacherId == __userId && e.OwnerId == ___userId);
 
                 ctx.Teachers.Remove(entity);
 

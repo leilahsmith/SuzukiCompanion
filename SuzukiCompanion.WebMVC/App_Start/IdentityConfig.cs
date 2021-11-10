@@ -107,13 +107,4 @@ namespace SuzukiCompanion.WebMVC
             return new ApplicationSignInManager(context.GetUserManager<ApplicationUserManager>(), context.Authentication);
         }
     }
-    public class ApplicationRoleManager : RoleManager<ApplicationRole>
-    {
-        public ApplicationRoleManager(IRoleStore<ApplicationRole, string> roleStore) : base(roleStore) { }
-        public static ApplicationRoleManager Create(IdentityFactoryOptions<ApplicationRoleManager> options, IOwinContext ctx)
-        {
-            var applicationRoleMaanger = new ApplicationRoleManager(new RoleStore<ApplicationRole>(ctx.Get<ApplicationDbContext>()));
-            return applicationRoleMaanger;
-        }
-    }
 }

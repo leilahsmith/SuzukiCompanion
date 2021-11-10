@@ -30,17 +30,14 @@
                         @if (User.Identity.IsAuthenticated)
                         {
                             <li class="nav-item">@Html.ActionLink("Lessons", "Index", "Lesson", new { area = "" }, new { @class = "nav-link" })</li>
+                            if (User.IsInRole("Admin"))
+                            {
+                                <li class="nav-item">@Html.ActionLink("Students", "Index", "Student", new { area = "" }, new { @class = "nav-link" })</li>
+                                <li class="nav-item">@Html.ActionLink("Teachers", "Index", "Teacher", new { area = "" }, new { @class = "nav-link" })</li>
+                            }
                         }
-
                         <li class="nav-item">@Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                         <li class="nav-item">@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                        
-                        @if (User.IsInRole("admin"))
-                        {
-                            <li class="nav-item">@Html.ActionLink("Students", "Index", "Student", new { area = "" }, new { @class = "nav-link" })</li>
-                            <li class="nav-item">@Html.ActionLink("Teachers", "Index", "Teacher", new { area = "" }, new { @class = "nav-link" })</li>
-                        }
-                        <li>@Html.ActionLink("Role", "Index", "Role")</li>
                     </ul>
                     @Html.Partial("_LoginPartial")
 
@@ -54,7 +51,7 @@
     @RenderBody()
     <hr />
     <footer>
-        <p>&copy; @DateTime.Now.Year - Leilah's Music Studio</p>
+        <p>&copy; @DateTime.Now.Year - Leilah's Music Studio, LLC</p>
     </footer>
 
 

@@ -9,7 +9,7 @@
 @if (User.Identity.IsAuthenticated)
 {
 
-    if (User.IsInRole("admin"))
+    if (User.IsInRole("Admin"))
     {
         <p>
             @Html.ActionLink("Create New", "Create")

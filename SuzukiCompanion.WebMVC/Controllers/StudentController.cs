@@ -13,8 +13,8 @@ namespace SuzukiCompanion.WebMVC.Controllers
     {
         // GET: Student
         [Authorize]
-        [Authorize(Roles = "admin")]
-        [Authorize(Roles = "Teacher")]
+        [Authorize(Roles = "Admin")]
+      
         public ActionResult Index()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
@@ -26,8 +26,8 @@ namespace SuzukiCompanion.WebMVC.Controllers
 
         // GET: Student/Create
         //This is a request to get the "Create" view.
-        [Authorize(Roles = "admin")]
-        [Authorize(Roles = "Teacher")]
+        [Authorize(Roles = "Admin")]
+     
         public ActionResult Create()
         {
             return View();
@@ -35,8 +35,8 @@ namespace SuzukiCompanion.WebMVC.Controllers
         // POST: Student/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "admin")]
-        [Authorize(Roles = "Teacher")]
+        [Authorize(Roles = "Admin")]
+  
         public ActionResult Create(StudentCreate model)
         {
             if (!ModelState.IsValid) return View(model);
@@ -54,8 +54,8 @@ namespace SuzukiCompanion.WebMVC.Controllers
         }
 
         //GET: Student/Details
-        [Authorize(Roles = "admin")]
-        [Authorize(Roles = "Teacher")]
+        [Authorize(Roles = "Admin")]
+      
         public ActionResult Details(int id)
         {
             var svc = CreateStudentService();
@@ -64,8 +64,8 @@ namespace SuzukiCompanion.WebMVC.Controllers
             return View(model);
         }
         
-        [Authorize(Roles = "admin")]
-        [Authorize(Roles = "Teacher")]
+        [Authorize(Roles = "Admin")]
+    
         public ActionResult Edit(int id)
         {
             var service = CreateStudentService();
@@ -87,8 +87,8 @@ namespace SuzukiCompanion.WebMVC.Controllers
         //POST: Student/Edit
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "admin")]
-        [Authorize(Roles = "Teacher")]
+        [Authorize(Roles = "Admin")]
+   
         public ActionResult Edit(int id, StudentEdit model)
         {
             if (!ModelState.IsValid) return View(model);
@@ -113,8 +113,8 @@ namespace SuzukiCompanion.WebMVC.Controllers
 
         //GET: Student/Delete
         [ActionName("Delete")]
-        [Authorize(Roles = "admin")]
-        [Authorize(Roles = "Teacher")]
+        [Authorize(Roles = "Admin")]
+    
         public ActionResult Delete(int id)
         {
             var svc = CreateStudentService();
@@ -127,8 +127,8 @@ namespace SuzukiCompanion.WebMVC.Controllers
         [HttpPost]
         [ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "admin")]
-        [Authorize(Roles = "Teacher")]
+        [Authorize(Roles = "Admin")]
+       
         public ActionResult DeleteStudent(int id)
         {
             var service = CreateStudentService();
