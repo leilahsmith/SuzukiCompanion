@@ -13,7 +13,7 @@ namespace SuzukiCompanion.WebMVC.Controllers
     {
         // GET: Student
         [Authorize]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "admin")]
         [Authorize(Roles = "Teacher")]
         public ActionResult Index()
         {
@@ -26,7 +26,7 @@ namespace SuzukiCompanion.WebMVC.Controllers
 
         // GET: Student/Create
         //This is a request to get the "Create" view.
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "admin")]
         [Authorize(Roles = "Teacher")]
         public ActionResult Create()
         {
@@ -35,7 +35,7 @@ namespace SuzukiCompanion.WebMVC.Controllers
         // POST: Student/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "admin")]
         [Authorize(Roles = "Teacher")]
         public ActionResult Create(StudentCreate model)
         {
@@ -54,7 +54,7 @@ namespace SuzukiCompanion.WebMVC.Controllers
         }
 
         //GET: Student/Details
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "admin")]
         [Authorize(Roles = "Teacher")]
         public ActionResult Details(int id)
         {
@@ -64,7 +64,7 @@ namespace SuzukiCompanion.WebMVC.Controllers
             return View(model);
         }
         
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "admin")]
         [Authorize(Roles = "Teacher")]
         public ActionResult Edit(int id)
         {
@@ -87,7 +87,7 @@ namespace SuzukiCompanion.WebMVC.Controllers
         //POST: Student/Edit
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "admin")]
         [Authorize(Roles = "Teacher")]
         public ActionResult Edit(int id, StudentEdit model)
         {
@@ -113,7 +113,7 @@ namespace SuzukiCompanion.WebMVC.Controllers
 
         //GET: Student/Delete
         [ActionName("Delete")]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "admin")]
         [Authorize(Roles = "Teacher")]
         public ActionResult Delete(int id)
         {
@@ -127,7 +127,7 @@ namespace SuzukiCompanion.WebMVC.Controllers
         [HttpPost]
         [ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "admin")]
         [Authorize(Roles = "Teacher")]
         public ActionResult DeleteStudent(int id)
         {

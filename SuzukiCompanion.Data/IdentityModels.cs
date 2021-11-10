@@ -19,7 +19,13 @@ namespace SuzukiCompanion.Data
             return userIdentity;
         }
     }
+    public class ApplicationRole : IdentityRole
+    {
+        public ApplicationRole():base() { }
+        public ApplicationRole(string roleName) : base(roleName) { }
 
+
+    }
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
@@ -41,6 +47,7 @@ namespace SuzukiCompanion.Data
         public DbSet<Video> Videos { get; set; }
         public DbSet<Pdf> Pdfs { get; set; }
         public DbSet<Photo> Photos { get; set; }
+     
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -54,6 +61,8 @@ namespace SuzukiCompanion.Data
                 .Add(new IdentityUserLoginConfiguration())
                 .Add(new IdentityUserRoleConfiguration());
         }
+
+       
     }
     public class IdentityUserLoginConfiguration : EntityTypeConfiguration<IdentityUserLogin>
     {

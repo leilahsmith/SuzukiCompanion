@@ -79,6 +79,14 @@
     <Compile Include="Migrations\202111071834202_TeacherMigration.Designer.cs">
       <DependentUpon>202111071834202_TeacherMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202111092103090_roleAdjust.cs" />
+    <Compile Include="Migrations\202111092103090_roleAdjust.Designer.cs">
+      <DependentUpon>202111092103090_roleAdjust.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111092354546_roleAdjustTwo.cs" />
+    <Compile Include="Migrations\202111092354546_roleAdjustTwo.Designer.cs">
+      <DependentUpon>202111092354546_roleAdjustTwo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Pdf.cs" />
     <Compile Include="Photo.cs" />
@@ -112,6 +120,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202111071834202_TeacherMigration.resx">
       <DependentUpon>202111071834202_TeacherMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111092103090_roleAdjust.resx">
+      <DependentUpon>202111092103090_roleAdjust.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111092354546_roleAdjustTwo.resx">
+      <DependentUpon>202111092354546_roleAdjustTwo.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

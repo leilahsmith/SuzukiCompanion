@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "StudentIndex";
+}
+
+<h2>Welcome Student!</h2>
+
+<!-- Navbar End -->
+<div class="container body-content">
+    <div class="row">
+        <div class="col-md-4">
+
+            <div class="homepage-body">
+                <h2>Getting started</h2>
+                <p>
+                    Welcome to your journey. Here, you will have all the resources you need for quality practice, <br />
+                    right at your fingertips. Remember, always set an intention for your practice. What <br />
+                    will your intention be today? <br />
+
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="homepage-body">
+    <p>@Html.ActionLink("Learn More", "About", "Home", new { area = "" }, new { @class = "btn btn-primary" })</p>
+</div>
+
