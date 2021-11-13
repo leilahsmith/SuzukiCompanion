@@ -9,6 +9,7 @@ namespace SuzukiCompanion.Models
 {
     public class LessonDetail
     {
+        [Key]
         public int LessonId { get; set; }
         [Display(Name = "Lesson Title")]
         public string LessonName { get; set; }

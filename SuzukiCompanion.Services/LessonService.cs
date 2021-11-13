@@ -8,23 +8,23 @@ using System.Threading.Tasks;
 
 namespace SuzukiCompanion.Services
 {
-    public class LessonService
+    public class LessonService : ILessonService
     {
-        private readonly Guid _userId;
-        public LessonService(Guid userId)
+        //private readonly Guid _userId;
+        //public LessonService(Guid userId)
+        //{
+        //    _userId = userId;
+        //}
+        public bool CreateLesson(LessonCreate model, string path)
         {
-            _userId = userId;
-        }
-        public bool CreateLesson(LessonCreate model)
-        {
-            var entity =
-                new Lesson()
-                {
-                    OwnerId = _userId,
-                    LessonName = model.LessonName,
-                    Contents = model.Contents,
-                    CreatedUtc = DateTimeOffset.Now
-                };
+            var entity = new Lesson()
+            {
+                OwnerId = Guid.Parse(model.UserId),
+                LessonName = model.LessonName,
+                Contents = model.Contents,
+                CreatedUtc = DateTimeOffset.Now,
+                ImagePath = path,
+            };
 
             using (var ctx = new ApplicationDbContext())
             {
@@ -32,14 +32,15 @@ namespace SuzukiCompanion.Services
                 return ctx.SaveChanges() == 1;
             }
         }
-        public IEnumerable<LessonListItem> GetLessons()
+        public IEnumerable<LessonListItem> GetLessons(string userId)
         {
             using (var ctx = new ApplicationDbContext())
             {
+                var guid = Guid.Parse(userId);
                 var query =
                     ctx
                         .Lessons
-                        .Where(e => e.OwnerId == _userId)
+                        .Where(e => e.OwnerId == guid)
                         .Select(
                             e =>
                                 new LessonListItem
@@ -56,15 +57,17 @@ namespace SuzukiCompanion.Services
                 return query.ToArray();
             }
         }
-        public LessonDetail GetLessonById(int id)
+        public LessonDetail GetLessonById(int id, string userId)
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity = 
+                var guid = Guid.Parse(userId);
+                var entity =
                     ctx
                         .Lessons
-                        .Single(e => e.LessonId == id && e.OwnerId == _userId);
+                        .Single(e => e.LessonId == id && e.OwnerId == guid);
                 return
+
                     new LessonDetail
                     {
                         LessonId = entity.LessonId,
@@ -82,12 +85,13 @@ namespace SuzukiCompanion.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
+                var guid = Guid.Parse(model.UserId);
                 var entity =
                     ctx
                         .Lessons
-                        .Single(e => e.LessonId == model.LessonId && e.OwnerId == _userId);
+                        .Single(e => e.LessonId == model.LessonId && e.OwnerId == guid);
 
-                
+
                 entity.LessonName = model.LessonName;
                 entity.Contents = model.Contents;
                 entity.Pdf = model.Pdf;
@@ -98,14 +102,15 @@ namespace SuzukiCompanion.Services
                 return ctx.SaveChanges() == 1;
             }
         }
-        public bool DeleteLesson(int lessonId)
+        public bool DeleteLesson(int lessonId, string userId)
         {
             using (var ctx = new ApplicationDbContext())
             {
+                var guid = Guid.Parse(userId);
                 var entity =
                     ctx
                         .Lessons
-                        .Single(e => e.LessonId == lessonId && e.OwnerId == _userId);
+                        .Single(e => e.LessonId == lessonId && e.OwnerId == guid);
 
                 ctx.Lessons.Remove(entity);
 

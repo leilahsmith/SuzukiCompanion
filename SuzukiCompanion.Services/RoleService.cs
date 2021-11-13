@@ -15,21 +15,6 @@ namespace SuzukiCompanion.Services
         {
             ApplicationDbContext ctx = new ApplicationDbContext();
             RoleManager<IdentityRole> roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(ctx));
-
-
-            if (!roleManager.RoleExists("Admin"))
-            {
-
-                roleManager.Create(new IdentityRole("Admin"));
-            }
-            if (!roleManager.RoleExists("Student"))
-            {
-                roleManager.Create(new IdentityRole("Student"));
-            }
-            if (!roleManager.RoleExists("Teacher"))
-            {
-                roleManager.Create(new IdentityRole("Teacher"));
-            }
         }
         public void MakeMyUserAdmin()
         {
@@ -43,6 +28,7 @@ namespace SuzukiCompanion.Services
             }
             //var userIsInRole = userManager.IsInRole(myUser.Id, "Student");
         }
-       
+
     }
 }
+

@@ -34,13 +34,10 @@ namespace SuzukiCompanion.Data
 
         //Databases go here
         public DbSet<Student> Students { get; set; }
-        public DbSet<Teacher> Teachers { get; set; }
         public DbSet<Lesson> Lessons { get; set; }
         public DbSet<Quiz> Quizzes { get; set; }
         public DbSet<Result> Results { get; set; }
-        public DbSet<Video> Videos { get; set; }
-        public DbSet<Pdf> Pdfs { get; set; }
-        public DbSet<Photo> Photos { get; set; }
+
      
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -55,8 +52,6 @@ namespace SuzukiCompanion.Data
                 .Add(new IdentityUserLoginConfiguration())
                 .Add(new IdentityUserRoleConfiguration());
         }
-
-       
     }
     public class IdentityUserLoginConfiguration : EntityTypeConfiguration<IdentityUserLogin>
     {

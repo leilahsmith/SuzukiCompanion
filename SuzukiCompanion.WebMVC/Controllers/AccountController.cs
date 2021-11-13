@@ -58,7 +58,16 @@ namespace SuzukiCompanion.WebMVC.Controllers
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
-            ViewBag.ReturnUrl = returnUrl;
+            if (User.IsInRole("Admin"))
+            {
+                //send him to Admin controller and index action
+                return RedirectToAction("Home", "Index", "Home");
+            }
+            else if (User.IsInRole("Student"))
+            {
+                //send him to Student controller and index action
+                return RedirectToAction("ActionName", "Controllername");
+            }
             return View();
         }
 
@@ -90,6 +99,11 @@ namespace SuzukiCompanion.WebMVC.Controllers
                     ModelState.AddModelError("", "Invalid login attempt.");
                     return View(model);
             }
+            //    if (ModelState.IsValid)
+            //    {
+            //        UserManager.AddToRole(user.Id, "Teacher");
+            //        UserManager.AddToRole<Teacher>(User.Id);
+            //    }
         }
 
         //
@@ -156,15 +170,40 @@ namespace SuzukiCompanion.WebMVC.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+                    if (result.Succeeded)
+                    {
+                        UserManager.AddToRole(user.Id, "Teacher");
+                        UserManager.AddToRole(user.Id, "Student");
+                        await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+
+                        return RedirectToAction("Index", "Home");
+                    }
+                   
+
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
-                    return RedirectToAction("Index", "Home");
+                   
+
+                    if (User.IsInRole("Admin"))
+                    {
+                        //send him to Admin controller and index action
+                        return RedirectToAction("Home", "Index", "Home");
+                    }
+                    else if (User.IsInRole("Teacher"))
+                    {
+                        //send him to Teacher controller and index action
+                        return RedirectToAction("Teacher", "Index", "Home");
+                    }
+                    else if (User.IsInRole("Student"))
+                    {
+                        //send him to Student controller and index action
+                        return RedirectToAction("Student", "Index", "Home");
+                    }
+                    return View();
                 }
                 AddErrors(result);
             }

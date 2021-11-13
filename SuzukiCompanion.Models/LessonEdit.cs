@@ -16,5 +16,6 @@ namespace SuzukiCompanion.Models
         public string Pdf { get; set; }
         public string Video { get; set; }
         public string Photo { get; set; }
+        public string UserId { get; set; }
     }
 }

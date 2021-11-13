@@ -1,0 +1,33 @@
+﻿@model SuzukiCompanion.Models.LessonListItem
+
+@{
+    ViewBag.Title = "Start";
+}
+<div>
+    <h2>Start Your Journey</h2>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LessonName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LessonName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Contents)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Contents)
+        </dd>
+
+
+
+    </dl>
+</div>
+<p>
+   
+    @Html.ActionLink("Back to Journey", "Journey")
+</p>
+

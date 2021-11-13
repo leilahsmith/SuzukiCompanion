@@ -15,5 +15,8 @@ namespace SuzukiCompanion.Models
         public string LessonName { get; set; }
         [Required]
         public string Contents { get; set; }
+        public string ImagePath { get; set; }
+        [Required]
+        public string UserId { get; set; }
     }
 }

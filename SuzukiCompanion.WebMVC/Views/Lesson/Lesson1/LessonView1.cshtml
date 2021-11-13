@@ -1,0 +1,35 @@
+﻿@model SuzukiCompanion.Models.LessonDetail
+
+@{
+    ViewBag.Title = "LessonView1";
+}
+
+<h2>LessonView1</h2>
+
+<div>
+    <h4>LessonDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LessonName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LessonName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Contents)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Contents)
+        </dd>
+
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.LessonId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +24,7 @@ namespace SuzukiCompanion.Data
         public string Pdf { get; set; }
         public string Video { get; set; }
         public string Photo { get; set; }
+        public string ImagePath { get; set; }
     }
 }
     
