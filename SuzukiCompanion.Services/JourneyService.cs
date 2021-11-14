@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SuzukiCompanion.Services
 {
-    class JourneyService
+    public class JourneyService
     {
         private readonly Guid _userId;
         public JourneyService(Guid userId)
@@ -32,7 +32,6 @@ namespace SuzukiCompanion.Services
                                    LessonId = e.LessonId,
                                    LessonName = e.LessonName,
                                    Contents = e.Contents
-                         
                                }
                        );
                 return query.ToArray();

@@ -206,6 +206,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\JourneyViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -277,19 +278,15 @@
     <Content Include="Views\Lesson\Details.cshtml" />
     <Content Include="Views\Lesson\Edit.cshtml" />
     <Content Include="Views\Lesson\Delete.cshtml" />
-    <Content Include="Views\Lesson\Lesson1\LessonView1.cshtml" />
-    <Content Include="Views\Home\_StudentLayout.cshtml" />
     <Content Include="Views\Journey\Start.cshtml" />
+    <Content Include="Views\Journey\LessonOne.cshtml" />
+    <Content Include="Views\Journey\JourneyDetails.cshtml" />
+    <Content Include="Views\Journey\LessonTwo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\Images1\" />
     <Folder Include="Content\img\" />
-    <Folder Include="UploadedFiles\" />
-    <Folder Include="Views\Content\" />
-    <Folder Include="Views\LessonDetails\" />
-    <Folder Include="Views\LessonOne\" />
-    <Folder Include="Views\Shared\img\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

@@ -26,6 +26,10 @@ namespace SuzukiCompanion.Services
             {
                 var adminRes = userManager.AddToRole(myUser.Id, "Admin");
             }
+            else
+            {
+                var adminRes = userManager.AddToRole(myUser.Id, "Student");
+            }
             //var userIsInRole = userManager.IsInRole(myUser.Id, "Student");
         }
 

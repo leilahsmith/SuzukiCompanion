@@ -48,9 +48,6 @@ namespace SuzukiCompanion.Services
                                     LessonId = e.LessonId,
                                     LessonName = e.LessonName,
                                     Contents = e.Contents,
-                                    Pdf = e.Pdf,
-                                    Video = e.Video,
-                                    Photo = e.Photo,
                                 }
                         );
 
@@ -75,9 +72,6 @@ namespace SuzukiCompanion.Services
                         Contents = entity.Contents,
                         CreatedUtc = entity.CreatedUtc,
                         ModifiedUtc = entity.ModifiedUtc,
-                        Pdf = entity.Pdf,
-                        Video = entity.Video,
-                        Photo = entity.Photo,
                     };
             }
         }

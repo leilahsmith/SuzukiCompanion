@@ -662,3 +662,39 @@ li:last-child {
     border-bottom: none;
 }
 
+/*Journey Page Styling
+*/
+.journey {
+    position: relative;
+    width: 100vw;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.journey::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("img/3.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    filter: brightness(60%);
+}
+.journey-image {
+    background-image: url("../Content/img/3.png");
+    /* Set a specific height */
+    height: 70%;
+    /* Position and center the image to scale nicely on all screens */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    display: inline-block;
+}

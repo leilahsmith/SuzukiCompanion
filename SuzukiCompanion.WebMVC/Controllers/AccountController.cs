@@ -23,7 +23,7 @@ namespace SuzukiCompanion.WebMVC.Controllers
         {
         }
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
+        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
             UserManager = userManager;
             SignInManager = signInManager;
@@ -35,9 +35,9 @@ namespace SuzukiCompanion.WebMVC.Controllers
             {
                 return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
-            private set 
-            { 
-                _signInManager = value; 
+            private set
+            {
+                _signInManager = value;
             }
         }
 
@@ -53,21 +53,10 @@ namespace SuzukiCompanion.WebMVC.Controllers
             }
         }
 
-        //
         // GET: /Account/Login
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
-            if (User.IsInRole("Admin"))
-            {
-                //send him to Admin controller and index action
-                return RedirectToAction("Home", "Index", "Home");
-            }
-            else if (User.IsInRole("Student"))
-            {
-                //send him to Student controller and index action
-                return RedirectToAction("ActionName", "Controllername");
-            }
             return View();
         }
 
@@ -82,7 +71,7 @@ namespace SuzukiCompanion.WebMVC.Controllers
             {
                 return View(model);
             }
-
+ 
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
             var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
@@ -99,11 +88,6 @@ namespace SuzukiCompanion.WebMVC.Controllers
                     ModelState.AddModelError("", "Invalid login attempt.");
                     return View(model);
             }
-            //    if (ModelState.IsValid)
-            //    {
-            //        UserManager.AddToRole(user.Id, "Teacher");
-            //        UserManager.AddToRole<Teacher>(User.Id);
-            //    }
         }
 
         //
@@ -135,7 +119,7 @@ namespace SuzukiCompanion.WebMVC.Controllers
             // If a user enters incorrect codes for a specified amount of time then the user account 
             // will be locked out for a specified amount of time. 
             // You can configure the account lockout settings in IdentityConfig
-            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent:  model.RememberMe, rememberBrowser: model.RememberBrowser);
+            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent: model.RememberMe, rememberBrowser: model.RememberBrowser);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -172,37 +156,18 @@ namespace SuzukiCompanion.WebMVC.Controllers
                 {
                     if (result.Succeeded)
                     {
-                        UserManager.AddToRole(user.Id, "Teacher");
                         UserManager.AddToRole(user.Id, "Student");
                         await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
 
                         return RedirectToAction("Index", "Home");
                     }
-                   
 
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
-
                    
-
-                    if (User.IsInRole("Admin"))
-                    {
-                        //send him to Admin controller and index action
-                        return RedirectToAction("Home", "Index", "Home");
-                    }
-                    else if (User.IsInRole("Teacher"))
-                    {
-                        //send him to Teacher controller and index action
-                        return RedirectToAction("Teacher", "Index", "Home");
-                    }
-                    else if (User.IsInRole("Student"))
-                    {
-                        //send him to Student controller and index action
-                        return RedirectToAction("Student", "Index", "Home");
-                    }
                     return View();
                 }
                 AddErrors(result);

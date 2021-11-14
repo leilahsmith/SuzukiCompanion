@@ -1,13 +1,13 @@
 ﻿@model SuzukiCompanion.Models.LessonDetail
 
 @{
-    ViewBag.Title = "LessonView1";
+    ViewBag.Title = "JourneyDetails";
 }
 
-<h2>LessonView1</h2>
+<h2>Journey Details</h2>
 
 <div>
-    <h4>LessonDetail</h4>
+    <h4>Lesson Details</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -17,6 +17,7 @@
         <dd>
             @Html.DisplayFor(model => model.LessonName)
         </dd>
+
         <dt>
             @Html.DisplayNameFor(model => model.Contents)
         </dt>
@@ -25,11 +26,9 @@
             @Html.DisplayFor(model => model.Contents)
         </dd>
 
-
-
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.LessonId }) |
+  
     @Html.ActionLink("Back to List", "Index")
 </p>

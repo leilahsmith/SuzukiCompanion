@@ -1,33 +1,65 @@
-﻿@model SuzukiCompanion.Models.LessonListItem
-
+﻿@model IEnumerable<SuzukiCompanion.Models.LessonListItem>
 @{
     ViewBag.Title = "Start";
 }
-<div>
-    <h2>Start Your Journey</h2>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.LessonName)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.LessonName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Contents)
-        </dt>
+<section class="journey">
+    <div class="journey-image">
 
-        <dd>
-            @Html.DisplayFor(model => model.Contents)
-        </dd>
+    </div>
+</section>
+
+            <h2>Start Your Journey</h2>
+            <hr />
+            @if (User.Identity.IsAuthenticated)
+            {
+
+                <div class="homepage-body table-bordered">
+                    <p><u>List of Available Lessons </u> </p>
+                </div>
+                <table class="table homepage-body table-bordered">
+                    <tr>
+                        <td>Lesson 1: Intro to Suzuki</td>
+                        <td>
+                            @Html.ActionLink("Lesson", "../Lesson/Details/3", "/3", new { @class = "btn btn-primary" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Lesson 2: Pre-Twinkles</td>
+                        <td>
+                            @Html.ActionLink("Lesson", "../Lesson/Details/4", new { LessonId = 4 }, new { @class = "btn btn-primary" })
+                        </td>
+                    </tr>
+                </table>
 
 
 
-    </dl>
-</div>
-<p>
-   
-    @Html.ActionLink("Back to Journey", "Journey")
-</p>
 
+                @*<th>
+                        @Html.DisplayNameFor(model => model.LessonName)
+                    </th>*@
+
+                @*<th>
+                        @Html.DisplayNameFor(model => model.CreatedUtc)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ModifiedUtc)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Contents)
+                    </th>*@
+                @*<th>List of Lessons</th>*@
+                <!--</tr>-->
+
+
+                @*<td>
+                            @Html.ActionLink("Start", "LessonOne", new { id = item.LessonId }, new { @class = "btn btn-primary" })
+                        </td>
+                    </tr>*@
+                <!--}
+                    </table>-->
+
+                <p>
+                    @Html.ActionLink("Journey", "Details", new { area = "" }, new { @class = "btn btn-primary" })
+                </p>
+            }

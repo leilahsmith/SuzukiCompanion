@@ -38,14 +38,11 @@ namespace SuzukiCompanion.Data
         public DbSet<Quiz> Quizzes { get; set; }
         public DbSet<Result> Results { get; set; }
 
-     
-
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder
                 .Conventions
                 .Remove<PluralizingTableNameConvention>();
-
 
             modelBuilder
                 .Configurations
