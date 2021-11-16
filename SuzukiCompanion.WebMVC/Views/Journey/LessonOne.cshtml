@@ -1,44 +1,38 @@
-﻿
+﻿@model IEnumerable<SuzukiCompanion.Models.LessonListItem>
 @{
     ViewBag.Title = "LessonOne";
 }
 
-<h2>LessonOne</h2>
+<h2>Lesson One: Introduction to the Suzuki Method</h2>
 
-!DOCTYPE html>
-<html lang="en">
-​
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTMl Doc</title>
 </head>
-​
+
 <body>
-​
-    <input type="text" id="food">
-    <button id="btn">click</button>
-    <select id="pickone">
-    </select>
-​
+    <p> Here is a great introduction to the Suzuki Method and what it is all about! </p>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/-0CihdX76II" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
     @*<script>
-        function getType() {
-            var x = document.getElementById("food").value;
-            var items;
-            if (x === "fruit") {
-                items = ["Apple", "Oranges", "Bananas"];
-            } else {
-                items = ["Eggplants", "Olives"]
+            function getType() {
+                var x = document.getElementById("food").value;
+                var items;
+                if (x === "fruit") {
+                    items = ["Apple", "Oranges", "Bananas"];
+                } else {
+                    items = ["Eggplants", "Olives"]
+                }
+                var str = ""
+                for (var item of items) {
+                    str += "<option>" + item + "</option>"
+                }
+                document.getElementById("pickone").innerHTML = str;
             }
-            var str = ""
-            for (var item of items) {
-                str += "<option>" + item + "</option>"
-            }
-            document.getElementById("pickone").innerHTML = str;
-        }
-        document.getElementById("btn").addEventListener("click", getType)
-    </script>*@
+            document.getElementById("btn").addEventListener("click", getType)
+        </script>*@
 </body>
-​
-</html>
+
+

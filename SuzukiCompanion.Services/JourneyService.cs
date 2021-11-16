@@ -8,23 +8,17 @@ using System.Threading.Tasks;
 
 namespace SuzukiCompanion.Services
 {
-    public class JourneyService
+    public class JourneyService : IJourneyService
     {
-        private readonly Guid _userId;
-        public JourneyService(Guid userId)
-        {
-            _userId = userId;
-        }
-        
         public IEnumerable<LessonListItem> GetLessons(string userId)
         {
             using (var ctx = new ApplicationDbContext())
             {
-
-                var query =
+                var guid = Guid.Parse(userId);
+                var journeyQuery =
                    ctx
                        .Lessons
-                       .Where(e => e.OwnerId == _userId)
+                       .Where(e => e.OwnerId == guid)
                        .Select(
                            e =>
                                new LessonListItem
@@ -34,10 +28,10 @@ namespace SuzukiCompanion.Services
                                    Contents = e.Contents
                                }
                        );
-                return query.ToArray();
+                return journeyQuery.ToArray();
             }
         }
-        public LessonDetail GetLessonById(int id, string userId)
+        public LessonDetail GetLessonById(int lessonId, string userId)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -45,7 +39,7 @@ namespace SuzukiCompanion.Services
                 var entity =
                     ctx
                         .Lessons
-                        .Single(e => e.LessonId == id && e.OwnerId == _userId);
+                         .Single(e => e.LessonId == lessonId && e.OwnerId == guid);
                 return
 
                     new LessonDetail
@@ -53,7 +47,7 @@ namespace SuzukiCompanion.Services
                         LessonId = entity.LessonId,
                         LessonName = entity.LessonName,
                         Contents = entity.Contents,
-                    }; 
+                    };
             }
         }
     }

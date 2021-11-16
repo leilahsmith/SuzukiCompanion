@@ -14,20 +14,20 @@ namespace SuzukiCompanion.WebMVC.Controllers
 {
     public class LessonController : Controller
     {
-        public readonly ILessonService _service;
+        private readonly ILessonService _service;
+
         public LessonController(ILessonService service)
-        {
+        {  
             _service = service;
-            service = _service;
         }
-        private ApplicationDbContext _db = new ApplicationDbContext();
 
         // GET: Lesson
         [Authorize]
         public ActionResult Index()
         {
-
+            //ILessonService service = new LessonService();
             var model = _service.GetLessons(User.Identity.GetUserId());
+            
             return View(model);
         }
 
@@ -103,7 +103,7 @@ namespace SuzukiCompanion.WebMVC.Controllers
                  };
             return View(model);
         }
-        //post: Lesson/Edit
+        //POST: Lesson/Edit
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
@@ -151,35 +151,3 @@ namespace SuzukiCompanion.WebMVC.Controllers
         }
     }
 }
-
-
-
-
-
-
-
-
-//    //POST: Lesson/Delete
-//    [HttpPost]
-//    [ActionName("Delete")]
-//    [ValidateAntiForgeryToken]
-//    public ActionResult DeleteLesson(int id)
-//    {
-//        var service = CreateLessonService();
-
-//        service.DeleteLesson(id);
-
-//        TempData["SaveResult"] = "Your lesson was deleted";
-
-//        return RedirectToAction("Index");
-//    }
-
-//    // Helper Method
-//    private LessonService CreateLessonService()
-//    {
-//        var userId = Guid.Parse(User.Identity.GetUserId());
-//        var service = new LessonService(userId);
-//        return service;
-//    }
-//}
-

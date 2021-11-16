@@ -3,42 +3,46 @@
 <div>
     <h4>Lesson Detail</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.LessonName)
-        </dt>
+    <section>
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.LessonName)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.LessonName)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.LessonName)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CreatedUtc)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.CreatedUtc)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.CreatedUtc)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.CreatedUtc)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ModifiedUtc)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.ModifiedUtc)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.ModifiedUtc)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.ModifiedUtc)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Contents)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Contents)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Contents)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Contents)
+            </dd>
 
-    </dl>
+        </dl>
+        <div class="homepage-body">
+            <p>
+                @Html.ActionLink("Back to List", "Index", "LessonListItem", new { area = "" }, new { @class = "btn btn-primary btl-button" })
+            </p>
+        </div>
+        <hr />
+    </section>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.LessonId }, new { @class = "btn btn-primary row" })
-    @Html.ActionLink("Back to List", "Index", new { area = "" }, new { @class = "btn btn-primary row" })
-</p>

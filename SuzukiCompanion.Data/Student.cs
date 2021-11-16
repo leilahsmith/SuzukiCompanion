@@ -10,6 +10,7 @@ namespace SuzukiCompanion.Data
     public class Student
     {
         [Key]
+        public string UserId { get; set; }
         public int StudentId { get; set; }
         [Required]
         public Guid OwnerId { get; set; }

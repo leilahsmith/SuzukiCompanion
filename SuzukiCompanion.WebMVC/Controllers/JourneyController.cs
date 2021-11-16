@@ -26,9 +26,12 @@ namespace SuzukiCompanion.WebMVC.Controllers
         public ActionResult Detail()
         {
             var model = new LessonListItem();
+
                
             return View(model);
         }
-    }
+
    
+    }
+
 }

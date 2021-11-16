@@ -8,29 +8,22 @@ using System.Threading.Tasks;
 
 namespace SuzukiCompanion.Services
 {
-    public class StudentService
+    public class StudentService : IStudentService
     {
-        private readonly Guid __userId;
-
-        public StudentService(Guid userId)
+        public bool CreateStudent(StudentCreate model, string path)
         {
-            __userId = userId;
-        }
-        public bool CreateStudent(StudentCreate model)
-        {
-            var entity =
-                new Student()
-                {
-                    OwnerId = __userId,
-                    Email = model.Email,
-                    FirstName = model.FirstName,
-                    LastName = model.LastName,
-                    Age = model.Age,
-                    PhoneNumber = model.PhoneNumber,
-                    Location = model.Location,
-                    StartDate = DateTime.Now,
+            var entity = new Student()
+            {
+                OwnerId = Guid.Parse(model.UserId),
+                Email = model.Email,
+                FirstName = model.FirstName,
+                LastName = model.LastName,
+                Age = model.Age,
+                PhoneNumber = model.PhoneNumber,
+                Location = model.Location,
+                StartDate = DateTime.Now,
 
-                };
+            };
 
             using (var ctx = new ApplicationDbContext())
             {
@@ -38,14 +31,15 @@ namespace SuzukiCompanion.Services
                 return ctx.SaveChanges() == 1;
             }
         }
-        public IEnumerable<StudentListItem> GetStudents()
+        public IEnumerable<StudentListItem> GetStudents(string userId)
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var query =
+                var guid = Guid.Parse(userId);
+                var studentQuery =
                     ctx
                         .Students
-                        .Where(e => e.OwnerId == __userId)
+                        .Where(e => e.OwnerId == guid)
                         .Select(
                             e =>
                                 new StudentListItem
@@ -60,18 +54,19 @@ namespace SuzukiCompanion.Services
                                     StartDate = DateTime.Now,
                                 }
                         );
-                return query.ToArray();
+                return studentQuery.ToArray();
             }
         }
 
-        public StudentDetail GetStudentById(int id)
+        public StudentDetail GetStudentById(int studentId, string userId)
         {
             using (var ctx = new ApplicationDbContext())
             {
+                var guid = Guid.Parse(userId);
                 var entity =
                     ctx
                         .Students
-                        .Single(e => e.StudentId == id && e.OwnerId == __userId);
+                        .Single(e => e.StudentId == studentId && e.OwnerId == guid);
                 return
                     new StudentDetail
                     {
@@ -86,19 +81,20 @@ namespace SuzukiCompanion.Services
                     };
             }
         }
-        public bool UpdateStudent(StudentEdit model)
+        public bool UpdateStudent(StudentEdit model, string userId)
         {
             using (var ctx = new ApplicationDbContext())
             {
+                var guid = Guid.Parse(userId);
                 var entity =
                     ctx
                         .Students
-                        .Single(e => e.StudentId == model.StudentId && e.OwnerId == __userId);
+                        .Single(e => e.StudentId == model.StudentId && e.OwnerId == guid);
 
-                
+
                 entity.FirstName = model.FirstName;
                 entity.LastName = model.LastName;
-                entity.Email = model.Email; 
+                entity.Email = model.Email;
                 entity.Age = model.Age;
                 entity.PhoneNumber = model.PhoneNumber;
                 entity.Location = model.Location;
@@ -107,14 +103,15 @@ namespace SuzukiCompanion.Services
                 return ctx.SaveChanges() == 1;
             }
         }
-        public bool DeleteStudent(int studentId)
+        public bool DeleteStudent(int studentId, string userId)
         {
             using (var ctx = new ApplicationDbContext())
             {
+                var guid = Guid.Parse(userId);
                 var entity =
                     ctx
                         .Students
-                        .Single(e => e.StudentId == studentId && e.OwnerId == __userId);
+                        .Single(e => e.StudentId == studentId && e.OwnerId == guid);
 
                 ctx.Students.Remove(entity);
 

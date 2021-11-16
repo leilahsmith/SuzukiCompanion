@@ -40,6 +40,7 @@ namespace SuzukiCompanion.WebMVC
 
             // Set the dependency resolver to be Autofac.
             var container = builder.Build();
+
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);

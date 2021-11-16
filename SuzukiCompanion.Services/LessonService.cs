@@ -10,11 +10,6 @@ namespace SuzukiCompanion.Services
 {
     public class LessonService : ILessonService
     {
-        private readonly Guid _userId;
-        public LessonService(Guid userId)
-        {
-            _userId = userId;
-        }
         public bool CreateLesson(LessonCreate model, string path)
         {
             var entity = new Lesson()
@@ -38,7 +33,7 @@ namespace SuzukiCompanion.Services
             using (var ctx = new ApplicationDbContext())
             {
                 var guid = Guid.Parse(userId);
-                var query =
+                var lessonQuery =
                     ctx
                         .Lessons
                         .Where(e => e.OwnerId == guid)
@@ -52,7 +47,7 @@ namespace SuzukiCompanion.Services
                                 }
                         );
 
-                return query.ToArray();
+                return lessonQuery.ToArray();
             }
         }
 
