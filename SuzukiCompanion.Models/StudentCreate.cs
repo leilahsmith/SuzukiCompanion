@@ -27,6 +27,7 @@ namespace SuzukiCompanion.Models
         public string Email { get; set; }
         [Display(Name = "Location")]
         public string Location { get; set; }
+        public bool IsActive { get; set; }
     }   
     
 }

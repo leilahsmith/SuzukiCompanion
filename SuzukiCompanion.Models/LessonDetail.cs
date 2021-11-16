@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,8 +9,8 @@ using System.Threading.Tasks;
 namespace SuzukiCompanion.Models
 {
     public class LessonDetail
-    {
-        [Key]
+    {  
+        [ForeignKey("LesssonId")]
         public int LessonId { get; set; }
         [Display(Name = "Lesson Title")]
         public string LessonName { get; set; }
@@ -18,8 +19,6 @@ namespace SuzukiCompanion.Models
         [Display(Name = "Modified")]
         public DateTimeOffset? ModifiedUtc { get; set; }
         public string Contents { get; set; }
-        public string Pdf { get; set; }
-        public string Video { get; set; }
-        public string Photo { get; set; }
+  
     }
 }

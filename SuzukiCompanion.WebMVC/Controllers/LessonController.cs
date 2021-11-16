@@ -14,7 +14,7 @@ namespace SuzukiCompanion.WebMVC.Controllers
 {
     public class LessonController : Controller
     {
-        private readonly ILessonService _service;
+        public readonly ILessonService _service;
         public LessonController(ILessonService service)
         {
             _service = service;
@@ -82,9 +82,9 @@ namespace SuzukiCompanion.WebMVC.Controllers
         }
 
         //GET: Lesson/Details
-        public ActionResult Details(int id)
+        public ActionResult Detail(int lessonId)
         {
-            var model = _service.GetLessonById(id, User.Identity.GetUserId());
+            var model = _service.GetLessonById(lessonId, User.Identity.GetUserId());
             return View(model);
         }
 
@@ -100,9 +100,6 @@ namespace SuzukiCompanion.WebMVC.Controllers
                      LessonId = detail.LessonId,
                      LessonName = detail.LessonName,
                      Contents = detail.Contents,
-                     Pdf = detail.Pdf,
-                     Video = detail.Video,
-                     Photo = detail.Photo,
                  };
             return View(model);
         }

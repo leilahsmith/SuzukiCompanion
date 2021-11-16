@@ -21,9 +21,7 @@ namespace SuzukiCompanion.Data
         public DateTimeOffset CreatedUtc { get; set; }
         public DateTimeOffset? ModifiedUtc { get; set; }
         public string Contents { get; set; }
-        public string Pdf { get; set; }
-        public string Video { get; set; }
-        public string Photo { get; set; }
+  
         public string ImagePath { get; set; }
     }
 }

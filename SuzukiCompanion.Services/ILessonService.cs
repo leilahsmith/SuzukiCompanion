@@ -7,7 +7,7 @@ namespace SuzukiCompanion.Services
     {
         bool CreateLesson(LessonCreate model, string path);
         bool DeleteLesson(int lessonId, string userId);
-        LessonDetail GetLessonById(int id, string userId);
+        LessonDetail GetLessonById(int lessonId, string userId);
         IEnumerable<LessonListItem> GetLessons(string userId);
         bool UpdateLesson(LessonEdit model);
         //object GetLessonById(string userId);

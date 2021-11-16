@@ -112,57 +112,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Lesson.cs" />
-    <Compile Include="Migrations\202110291654529_InitialMigration.cs" />
-    <Compile Include="Migrations\202110291654529_InitialMigration.Designer.cs">
-      <DependentUpon>202110291654529_InitialMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202110291843595_SecondMigration.cs" />
-    <Compile Include="Migrations\202110291843595_SecondMigration.Designer.cs">
-      <DependentUpon>202110291843595_SecondMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202110292250440_EmailMigration.cs" />
-    <Compile Include="Migrations\202110292250440_EmailMigration.Designer.cs">
-      <DependentUpon>202110292250440_EmailMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202110300024511_LessonMigration.cs" />
-    <Compile Include="Migrations\202110300024511_LessonMigration.Designer.cs">
-      <DependentUpon>202110300024511_LessonMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202110301451010_AuthorizationMigration.cs" />
-    <Compile Include="Migrations\202110301451010_AuthorizationMigration.Designer.cs">
-      <DependentUpon>202110301451010_AuthorizationMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111071834202_TeacherMigration.cs" />
-    <Compile Include="Migrations\202111071834202_TeacherMigration.Designer.cs">
-      <DependentUpon>202111071834202_TeacherMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111092103090_roleAdjust.cs" />
-    <Compile Include="Migrations\202111092103090_roleAdjust.Designer.cs">
-      <DependentUpon>202111092103090_roleAdjust.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111092354546_roleAdjustTwo.cs" />
-    <Compile Include="Migrations\202111092354546_roleAdjustTwo.Designer.cs">
-      <DependentUpon>202111092354546_roleAdjustTwo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111102006075_fix.cs" />
-    <Compile Include="Migrations\202111102006075_fix.Designer.cs">
-      <DependentUpon>202111102006075_fix.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111112315248_UploadMigration.cs" />
-    <Compile Include="Migrations\202111112315248_UploadMigration.Designer.cs">
-      <DependentUpon>202111112315248_UploadMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111121637041_AutoFac.cs" />
-    <Compile Include="Migrations\202111121637041_AutoFac.Designer.cs">
-      <DependentUpon>202111121637041_AutoFac.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111122233331_KeyMigration.cs" />
-    <Compile Include="Migrations\202111122233331_KeyMigration.Designer.cs">
-      <DependentUpon>202111122233331_KeyMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111131836126_JourneyMigration.cs" />
-    <Compile Include="Migrations\202111131836126_JourneyMigration.Designer.cs">
-      <DependentUpon>202111131836126_JourneyMigration.cs</DependentUpon>
+    <Compile Include="Migrations\202111151804007_RestartMigration.cs" />
+    <Compile Include="Migrations\202111151804007_RestartMigration.Designer.cs">
+      <DependentUpon>202111151804007_RestartMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Quiz.cs" />
@@ -176,44 +128,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202110291654529_InitialMigration.resx">
-      <DependentUpon>202110291654529_InitialMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202110291843595_SecondMigration.resx">
-      <DependentUpon>202110291843595_SecondMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202110292250440_EmailMigration.resx">
-      <DependentUpon>202110292250440_EmailMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202110300024511_LessonMigration.resx">
-      <DependentUpon>202110300024511_LessonMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202110301451010_AuthorizationMigration.resx">
-      <DependentUpon>202110301451010_AuthorizationMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111071834202_TeacherMigration.resx">
-      <DependentUpon>202111071834202_TeacherMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111092103090_roleAdjust.resx">
-      <DependentUpon>202111092103090_roleAdjust.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111092354546_roleAdjustTwo.resx">
-      <DependentUpon>202111092354546_roleAdjustTwo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111102006075_fix.resx">
-      <DependentUpon>202111102006075_fix.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111112315248_UploadMigration.resx">
-      <DependentUpon>202111112315248_UploadMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111121637041_AutoFac.resx">
-      <DependentUpon>202111121637041_AutoFac.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111122233331_KeyMigration.resx">
-      <DependentUpon>202111122233331_KeyMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111131836126_JourneyMigration.resx">
-      <DependentUpon>202111131836126_JourneyMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202111151804007_RestartMigration.resx">
+      <DependentUpon>202111151804007_RestartMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

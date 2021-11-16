@@ -1,0 +1,44 @@
+﻿@model SuzukiCompanion.Models.LessonListItem
+
+<div>
+    <h4>Lesson Detail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LessonName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LessonName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedUtc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedUtc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedUtc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedUtc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Contents)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Contents)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.LessonId }, new { @class = "btn btn-primary row" })
+    @Html.ActionLink("Back to List", "Index", new { area = "" }, new { @class = "btn btn-primary row" })
+</p>

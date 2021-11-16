@@ -2,6 +2,7 @@
 using SuzukiCompanion.Data;
 using SuzukiCompanion.Models;
 using SuzukiCompanion.Services;
+using SuzukiCompanion.WebMVC.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,8 @@ namespace SuzukiCompanion.WebMVC.Controllers
 {
     public class JourneyController : Controller
     {
-        private ApplicationDbContext _db = new ApplicationDbContext();
+        private readonly ApplicationDbContext _db = new ApplicationDbContext();
+
         // GET: Journey/Start
         [Authorize]
         public ActionResult Start()
@@ -21,26 +23,11 @@ namespace SuzukiCompanion.WebMVC.Controllers
             return View("~/Views/Journey/Start.cshtml");
         }
 
-        // Get: Details
-        public ActionResult Details(int? lessonId)
+        public ActionResult Detail()
         {
-            if (lessonId == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-
-            Lesson lesson = _db.Lessons.Find(lessonId);
-            if (lesson == null)
-            {
-                return HttpNotFound();
-            }
-            return View(lesson);
-        }
-        private JourneyService CreateJourneyService()
-        {
-        var userId = Guid.Parse(User.Identity.GetUserId());
-        var service = new JourneyService(userId);
-        return service;
+            var model = new LessonListItem();
+               
+            return View(model);
         }
     }
    

@@ -280,8 +280,8 @@
     <Content Include="Views\Lesson\Delete.cshtml" />
     <Content Include="Views\Journey\Start.cshtml" />
     <Content Include="Views\Journey\LessonOne.cshtml" />
-    <Content Include="Views\Journey\JourneyDetails.cshtml" />
     <Content Include="Views\Journey\LessonTwo.cshtml" />
+    <Content Include="Views\Journey\Detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

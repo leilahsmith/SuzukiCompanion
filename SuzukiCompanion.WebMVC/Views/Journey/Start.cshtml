@@ -1,4 +1,4 @@
-﻿@model IEnumerable<SuzukiCompanion.Models.LessonListItem>
+﻿@model IEnumerable<SuzukiCompanion.Models.LessonDetail>
 @{
     ViewBag.Title = "Start";
 }
@@ -21,13 +21,13 @@
                     <tr>
                         <td>Lesson 1: Intro to Suzuki</td>
                         <td>
-                            @Html.ActionLink("Lesson", "../Lesson/Details/3", "/3", new { @class = "btn btn-primary" })
+                            @Html.ActionLink("Start Lesson", "Detail", new { id = Model }, new { @class = "btn btn-primary" })
                         </td>
                     </tr>
                     <tr>
                         <td>Lesson 2: Pre-Twinkles</td>
                         <td>
-                            @Html.ActionLink("Lesson", "../Lesson/Details/4", new { LessonId = 4 }, new { @class = "btn btn-primary" })
+                            @Html.ActionLink("Start Lesson", "Detail", new { LessonId = 6 }, new { @class = "btn btn-primary" })
                         </td>
                     </tr>
                 </table>
@@ -35,9 +35,9 @@
 
 
 
-                @*<th>
+                <th>
                         @Html.DisplayNameFor(model => model.LessonName)
-                    </th>*@
+                    </th>
 
                 @*<th>
                         @Html.DisplayNameFor(model => model.CreatedUtc)
@@ -60,6 +60,6 @@
                     </table>-->
 
                 <p>
-                    @Html.ActionLink("Journey", "Details", new { area = "" }, new { @class = "btn btn-primary" })
+                    @Html.ActionLink("Journey", "Detail", new { area = "" }, new { @class = "btn btn-primary" })
                 </p>
             }

@@ -7,13 +7,13 @@ namespace SuzukiCompanion.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class UploadMigration : IMigrationMetadata
+    public sealed partial class RestartMigration : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(UploadMigration));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(RestartMigration));
         
         string IMigrationMetadata.Id
         {
-            get { return "202111112315248_UploadMigration"; }
+            get { return "202111151804007_RestartMigration"; }
         }
         
         string IMigrationMetadata.Source

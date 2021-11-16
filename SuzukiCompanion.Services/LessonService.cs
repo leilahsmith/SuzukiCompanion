@@ -10,11 +10,11 @@ namespace SuzukiCompanion.Services
 {
     public class LessonService : ILessonService
     {
-        //private readonly Guid _userId;
-        //public LessonService(Guid userId)
-        //{
-        //    _userId = userId;
-        //}
+        private readonly Guid _userId;
+        public LessonService(Guid userId)
+        {
+            _userId = userId;
+        }
         public bool CreateLesson(LessonCreate model, string path)
         {
             var entity = new Lesson()
@@ -32,6 +32,7 @@ namespace SuzukiCompanion.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+
         public IEnumerable<LessonListItem> GetLessons(string userId)
         {
             using (var ctx = new ApplicationDbContext())
@@ -54,6 +55,7 @@ namespace SuzukiCompanion.Services
                 return query.ToArray();
             }
         }
+
         public LessonDetail GetLessonById(int id, string userId)
         {
             using (var ctx = new ApplicationDbContext())
@@ -75,6 +77,7 @@ namespace SuzukiCompanion.Services
                     };
             }
         }
+
         public bool UpdateLesson(LessonEdit model)
         {
             using (var ctx = new ApplicationDbContext())
@@ -88,14 +91,12 @@ namespace SuzukiCompanion.Services
 
                 entity.LessonName = model.LessonName;
                 entity.Contents = model.Contents;
-                entity.Pdf = model.Pdf;
-                entity.Video = model.Video;
-                entity.Photo = model.Photo;
                 entity.ModifiedUtc = DateTimeOffset.UtcNow;
 
                 return ctx.SaveChanges() == 1;
             }
         }
+
         public bool DeleteLesson(int lessonId, string userId)
         {
             using (var ctx = new ApplicationDbContext())
