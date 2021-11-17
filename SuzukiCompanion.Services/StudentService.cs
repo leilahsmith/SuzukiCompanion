@@ -15,6 +15,7 @@ namespace SuzukiCompanion.Services
             var entity = new Student()
             {
                 OwnerId = Guid.Parse(model.UserId),
+                UserId = model.UserId,
                 Email = model.Email,
                 FirstName = model.FirstName,
                 LastName = model.LastName,
@@ -81,11 +82,11 @@ namespace SuzukiCompanion.Services
                     };
             }
         }
-        public bool UpdateStudent(StudentEdit model, string userId)
+        public bool UpdateStudent(StudentEdit model)
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var guid = Guid.Parse(userId);
+                var guid = Guid.Parse(model.UserId);
                 var entity =
                     ctx
                         .Students

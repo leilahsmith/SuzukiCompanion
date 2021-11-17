@@ -10,7 +10,7 @@ namespace SuzukiCompanion.Models
 {
     public class StudentEdit
     {
-        [ForeignKey("StudentId")]
+        public string UserId { get; set; }
         public int StudentId { get; set; }
         [EmailAddress]
         public string Email { get; set; }

@@ -111,10 +111,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Journey.cs" />
     <Compile Include="Lesson.cs" />
-    <Compile Include="Migrations\202111151804007_RestartMigration.cs" />
-    <Compile Include="Migrations\202111151804007_RestartMigration.Designer.cs">
-      <DependentUpon>202111151804007_RestartMigration.cs</DependentUpon>
+    <Compile Include="Migrations\202111170547024_IntialMigrations.cs" />
+    <Compile Include="Migrations\202111170547024_IntialMigrations.Designer.cs">
+      <DependentUpon>202111170547024_IntialMigrations.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Quiz.cs" />
@@ -128,8 +129,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202111151804007_RestartMigration.resx">
-      <DependentUpon>202111151804007_RestartMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202111170547024_IntialMigrations.resx">
+      <DependentUpon>202111170547024_IntialMigrations.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

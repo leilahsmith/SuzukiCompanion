@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,9 +10,12 @@ namespace SuzukiCompanion.Data
 {
     public class Student
     {
-        [Key]
-        public string UserId { get; set; }
+        [Key]  
         public int StudentId { get; set; }
+        [ForeignKey(nameof(User))]
+        public string UserId { get; set; }
+        public virtual ApplicationUser User { get; set; }
+
         [Required]
         public Guid OwnerId { get; set; }
         [EmailAddress]

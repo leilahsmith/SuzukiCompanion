@@ -14,11 +14,10 @@ namespace SuzukiCompanion.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var guid = Guid.Parse(userId);
                 var journeyQuery =
                    ctx
                        .Lessons
-                       .Where(e => e.OwnerId == guid)
+                     
                        .Select(
                            e =>
                                new LessonListItem
@@ -31,6 +30,7 @@ namespace SuzukiCompanion.Services
                 return journeyQuery.ToArray();
             }
         }
+
         public LessonDetail GetLessonById(int lessonId, string userId)
         {
             using (var ctx = new ApplicationDbContext())

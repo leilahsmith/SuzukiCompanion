@@ -15,6 +15,10 @@ namespace SuzukiCompanion.Services
         {
             ApplicationDbContext ctx = new ApplicationDbContext();
             RoleManager<IdentityRole> roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(ctx));
+            if (!roleManager.RoleExists("Admin"))
+            {
+                roleManager.Create(new IdentityRole("Admin"));
+            }
         }
         public void MakeMyUserAdmin()
         {
@@ -26,10 +30,10 @@ namespace SuzukiCompanion.Services
             {
                 var adminRes = userManager.AddToRole(myUser.Id, "Admin");
             }
-            else
-            {
-                var adminRes = userManager.AddToRole(myUser.Id, "Student");
-            }
+            //else
+            //{
+            //    var adminRes = userManager.AddToRole(myUser.Id, "Student");
+            //}
             //var userIsInRole = userManager.IsInRole(myUser.Id, "Student");
         }
 

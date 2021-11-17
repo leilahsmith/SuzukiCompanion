@@ -10,7 +10,7 @@ namespace SuzukiCompanion.Models
 {
     public class LessonListItem
     {
-        [ForeignKey("LessonId")]
+       
         public int LessonId { get; set; }
         [Required]
         [Display(Name = "Lesson Name")]

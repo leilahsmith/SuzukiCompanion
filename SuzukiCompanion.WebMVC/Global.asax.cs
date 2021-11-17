@@ -37,6 +37,8 @@ namespace SuzukiCompanion.WebMVC
             //// OPTIONAL: Enable action method parameter injection (RARE).
             //builder.InjectActionInvoker();
             builder.RegisterType<LessonService>().As<ILessonService>();
+            builder.RegisterType<StudentService>().As<IStudentService>();
+            builder.RegisterType<JourneyService>().As<IJourneyService>();
 
             // Set the dependency resolver to be Autofac.
             var container = builder.Build();

@@ -25,9 +25,7 @@ namespace SuzukiCompanion.WebMVC.Controllers
         [Authorize]
         public ActionResult Index()
         {
-            //ILessonService service = new LessonService();
             var model = _service.GetLessons(User.Identity.GetUserId());
-            
             return View(model);
         }
 
@@ -74,11 +72,7 @@ namespace SuzukiCompanion.WebMVC.Controllers
 
                     ModelState.AddModelError("", "Your lesson could not be created.");
                 }
-               
-            
                 return View(model);
-
-            //var service = CreateLessonService();
         }
 
         //GET: Lesson/Details
@@ -90,10 +84,9 @@ namespace SuzukiCompanion.WebMVC.Controllers
 
         //GET: Lesson/Edit
         [Authorize(Roles = "Admin")]
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int lessonId)
         {
-            
-            var detail = _service.GetLessonById(id, User.Identity.GetUserId());
+            var detail = _service.GetLessonById(lessonId, User.Identity.GetUserId());
             var model =
                  new LessonEdit
                  {
@@ -107,11 +100,12 @@ namespace SuzukiCompanion.WebMVC.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
-        public ActionResult Edit(int id, LessonEdit model)
+        public ActionResult Edit(int lessonId, LessonEdit model)
         {
             if (!ModelState.IsValid) return View(model);
             model.UserId = User.Identity.GetUserId();
-            if (model.LessonId != id)
+            
+            if (model.LessonId != lessonId)
             {
                 ModelState.AddModelError("", "Id Mismatch");
                 return View(model);
@@ -130,9 +124,9 @@ namespace SuzukiCompanion.WebMVC.Controllers
         //GET: Lesson/Delete
         [ActionName("Delete")]
         [Authorize(Roles = "Admin")]
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int lessonId)
         {
-            var model = _service.GetLessonById(id, User.Identity.GetUserId());
+            var model = _service.GetLessonById(lessonId, User.Identity.GetUserId());
 
             return View(model);
         }
@@ -142,9 +136,9 @@ namespace SuzukiCompanion.WebMVC.Controllers
         [ActionName("Delete")]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
-        public ActionResult DeleteLesson(int id)
+        public ActionResult DeleteLesson(int lessonId)
         {
-            _service.DeleteLesson(id, User.Identity.GetUserId());
+            _service.DeleteLesson(lessonId, User.Identity.GetUserId());
             TempData["SaveResult"] = "Your lesson was deleted";
 
             return RedirectToAction("Index");

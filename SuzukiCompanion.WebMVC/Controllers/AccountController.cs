@@ -156,7 +156,7 @@ namespace SuzukiCompanion.WebMVC.Controllers
                 {
                     if (result.Succeeded)
                     {
-                        UserManager.AddToRole(user.Id, "Student");
+                        //UserManager.AddToRole(user.Id, "Student");
                         await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
 
                         return RedirectToAction("Index", "Home");

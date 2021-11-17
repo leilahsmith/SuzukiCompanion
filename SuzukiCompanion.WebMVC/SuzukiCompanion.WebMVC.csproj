@@ -268,9 +268,8 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Student\Index.cshtml" />
-    <Content Include="Views\Student\Details.cshtml" />
+    <Content Include="Views\Student\Detail.cshtml" />
     <Content Include="Views\Student\Edit.cshtml" />
-    <Content Include="Views\Student\Create.cshtml" />
     <Content Include="Views\Student\Delete.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\DateTimeOffset.cshtml" />
     <Content Include="Views\Lesson\Index.cshtml" />
@@ -279,9 +278,8 @@
     <Content Include="Views\Lesson\Edit.cshtml" />
     <Content Include="Views\Lesson\Delete.cshtml" />
     <Content Include="Views\Journey\Start.cshtml" />
-    <Content Include="Views\Journey\LessonOne.cshtml" />
-    <Content Include="Views\Journey\LessonTwo.cshtml" />
     <Content Include="Views\Journey\Detail.cshtml" />
+    <Content Include="Views\Student\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

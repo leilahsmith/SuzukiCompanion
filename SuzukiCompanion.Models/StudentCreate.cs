@@ -10,7 +10,7 @@ namespace SuzukiCompanion.Models
 {
     public class StudentCreate
     {
-        [Key]
+        
         public string UserId { get; set; }
         public int StudentId { get; set; }
         [Required]

@@ -9,6 +9,6 @@ namespace SuzukiCompanion.Services
         bool DeleteStudent(int studentId, string userId);
         StudentDetail GetStudentById(int studentId, string userId);
         IEnumerable<StudentListItem> GetStudents(string userId);
-        bool UpdateStudent(StudentEdit model, string userId);
+        bool UpdateStudent(StudentEdit model);
     }
 }

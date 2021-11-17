@@ -6,9 +6,11 @@
 
 <h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<div class="homepage-body">
+    <p>
+        @Html.ActionLink("Create New", "Create", new { area = "" }, new { @class = "btn btn-primary" })
+    </p>
+</div>
 @if (TempData.ContainsKey("SaveResult"))
 {
     <div class="alert alert-success fade in" role="alert">
@@ -88,9 +90,9 @@
                 @Html.DisplayFor(modelItem => item.ModifiedUtc)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.StudentId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.StudentId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.StudentId })
+                @Html.ActionLink("Edit", "Edit", new { id = item.StudentId }, new { @class = "btn btn-primary" }) 
+                @Html.ActionLink("Details", "Details", new { id = item.StudentId }, new { @class = "btn btn-primary" }) 
+                @Html.ActionLink("Delete", "Delete", new { id = item.StudentId }, new { @class = "btn btn-primary" })
             </td>
         </tr>
     }
