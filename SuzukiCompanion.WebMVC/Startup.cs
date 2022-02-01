@@ -13,8 +13,8 @@ namespace SuzukiCompanion.WebMVC
         {
             ConfigureAuth(app);
             var service = new RoleService();
-            service.CreateAdmin();
-            service.MakeMyUserAdmin();
+            //service.CreateAdmin();
+            //service.MakeMyUserAdmin();
         }
     }
 }
